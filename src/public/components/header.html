@@ -1,20 +1,17 @@
-<header class="bg-blue-600 text-white p-4 flex items-center justify-between">
-  <a href="/" class="text-xl font-semibold">MyApp</a>
-  <nav class="space-x-4 hidden md:flex">
-    <a href="/" class="hover:underline">Home</a>
-    <a href="/about.html" class="hover:underline">About</a>
-    <a href="/contact.html" class="hover:underline">Contact</a>
+<header class="flex p-1  bg-exOscuro text-white">
+  <a href="/" class="flex-1  justify-start items-center  flex flex-row flex-nowrap  text-xl font-semibold">
+    <img class="w-12 h-12" src="/assets/images/logo.png" alt="Logo Exactamente">
+    <p class="font-exTitulos text-3xl"><span class="font-bold text-exCeleste">Exacta</span><span class="font-normal text-exVerde">mente</span><span class="font-bold text-exVerde">!</span></p>
+  </a>
+  <nav class="flex-1  flex justify-center items-center  text-lg space-x-6 ">
+    <a href="/contenidos.html" class="hover:underline">Contenidos</a>
+    <a href="/materias.html" class="hover:underline">Materias</a>
+    <a href="/sobre.html" class="hover:underline">Sobre</a>
   </nav>
-  <button @click="open = !open" class="md:hidden focus:outline-none">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path :class="{'hidden': open, 'block': !open}" d="M4 6h16M4 12h16M4 18h16"></path>
-    <path :class="{'block': open, 'hidden': !open}" d="M6 18L18 6M6 6l12 12"></path>
-    </svg>
-  </button>
-  <div x-show="open" @click.away="open = false" class="md:hidden mt-2 space-y-2 bg-blue-500 p-4 rounded">
-    <a href="/" class="block text-white hover:underline">Home</a>
-    <a href="/about.html" class="block text-white hover:underline">About</a>
-    <a href="/contact.html" class="block text-white hover:underline">Contact</a>
+  <div class="flex-1 mr-1 flex justify-end items-center">
+    <a href="https://github.com/AugustoNicola/exactamente">
+      <img class="w-8 h-8 hover:brightness-75" src="/assets/images/github.png" alt="Logo GitHub">
+    </a>
   </div>
 </header>
   
