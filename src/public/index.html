@@ -14,10 +14,18 @@
 </head>
 <body class="bg-exClaro">
   <div hx-get="/components/header.html" hx-trigger="load"></div>
-  
-  <main class="p-4">
-    <h1 class="text-3xl font-bold">Exactamente</h1>
-    <p class="mt-4">Página principal.</p>
+  <main>
+    <!-- Hero Banner -->
+    <div class="bg-[url('/assets/images/banner.png')] bg-center">
+      <div class="flex flex-col justify-center items-center space-y-6  w-5/12 m-auto py-12 font-exTitulos text-white text-center">
+        <div class="flex flex-row flex-nowrap justify-start items-center  text-5xl font-semibold">
+          <img class="w-14 h-14" src="/assets/images/logo.png" alt="Logo Exactamente">
+          <p class="font-exTitulos"><span class="font-bold text-exCeleste">Exacta</span><span class="font-normal text-exVerde">mente</span><span class="font-bold text-exVerde">!</span></p>
+        </div>
+        <p class="text-xl font-semibold">Recurso online de la FCEN para visualizar algoritmos y conceptos de computación.</p>
+        <p class="text-lg">Explicaciones didácticas y visualizaciones en tiempo real de algoritmos y conceptos de Ciencias de la Computación. ¡Hacé click en una entrada de la lista para empezar!</p>
+      </div>
+    </div>
   </main>
 </body>
 </html>
