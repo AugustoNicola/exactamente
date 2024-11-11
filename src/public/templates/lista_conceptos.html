@@ -1,0 +1,16 @@
+<div class="w-8/12 mx-auto mt-6">
+  <h2 class="font-exTitulos text-black text-xl underline font-bold mb-8">Algoritmos Sobre Grafos</h2>
+  <div x-data="listado" class="flex flex-row flex-wrap justify-start">
+    <template x-for="concepto in listado_grafos" :key="concepto.titulo">
+      <div hx-get="/components/tarjeta_concepto.html" hx-trigger="load" hx-target="this" x-data="{ ...concepto }"></div>
+    </template>
+  </div>
+</div>
+<div class="w-8/12 mx-auto mt-6">
+  <h2 class="font-exTitulos text-black text-xl underline font-bold mb-8">Algoritmos de Ordenamiento</h2>
+  <div x-data="listado" class="flex flex-row flex-wrap justify-start">
+    <template x-for="concepto in listado_ordenamiento" :key="concepto.titulo">
+      <div hx-get="/components/tarjeta_concepto.html" hx-trigger="load" hx-target="this" x-data="{ ...concepto }"></div>
+    </template>
+  </div>
+</div>
