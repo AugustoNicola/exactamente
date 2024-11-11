@@ -9,7 +9,8 @@ module.exports = {
         'exVerde': "#67cbb0",
         'exClaro': "#f0fafa",
         'exOscuro': "#0a1f1f",
-        'exGris': "#d6d6d6"
+        'exGris': "#d6d6d6",
+        'exVerdeOscuro': "#387467"
       },
       fontFamily: {
         exTitulos: ['Raleway', 'serif'],
