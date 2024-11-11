@@ -11,6 +11,7 @@
   <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
   <script src="assets/js/htmx.js"></script>
   <script src="assets/js/alpine.js" defer></script>
+  <script src="assets/js/main.js"></script>
 </head>
 <body class="bg-exClaro">
   <div hx-get="/components/header.html" hx-trigger="load"></div>
@@ -24,6 +25,25 @@
         </div>
         <p class="text-xl font-semibold">Recurso online de la FCEN para visualizar algoritmos y conceptos de computación.</p>
         <p class="text-lg">Explicaciones didácticas y visualizaciones en tiempo real de algoritmos y conceptos de Ciencias de la Computación. ¡Hacé click en una entrada de la lista para empezar!</p>
+      </div>
+    </div>
+    <!-- Lista de Contenidos -->
+    <div class="w-8/12 mx-auto mt-6">
+      <h2 class="font-exTitulos text-black text-xl underline font-bold mb-8">Algoritmos Sobre Grafos</h2>
+      <div class="flex flex-row flex-wrap justify-between">
+        <div x-data="listado">
+          <template x-for="concepto in listadografos" :key="concepto.titulo">
+            <a :href="concepto.url" class="flex flex-col justify-center items-center bg-gray-200 hover:brightness-75 mb-8">
+              <span x-text="concepto.titulo" class="text-center font-bold"></span>
+            </a>
+          </template>
+        </div>
+        
+        <div hx-get="/components/concept.html" hx-trigger="load"></div>
+        <div hx-get="/components/concept.html" hx-trigger="load"></div>
+        <div hx-get="/components/concept.html" hx-trigger="load"></div>
+        <div hx-get="/components/concept.html" hx-trigger="load"></div>
+        <div hx-get="/components/concept.html" hx-trigger="load"></div>
       </div>
     </div>
   </main>
