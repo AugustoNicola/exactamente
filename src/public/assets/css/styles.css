@@ -579,6 +579,22 @@ video {
   margin-top: 1.5rem;
 }
 
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.mr-5 {
+  margin-right: 1.25rem;
+}
+
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -635,6 +651,10 @@ video {
   flex-wrap: nowrap;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
 }
@@ -653,6 +673,14 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {

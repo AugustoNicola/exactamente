@@ -24,7 +24,7 @@ export default () => ({
 			titulo: "Kruskal",
 			url: "/contenidos/kruskal.html",
 			imagen: "thumbnail_kruskal.png"
-		}
+		},
 	],
 	listado_ordenamiento: [
 		{
