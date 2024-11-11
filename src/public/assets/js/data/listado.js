@@ -1,5 +1,5 @@
 export default () => ({
-    "listado-grafos": [
+    listado_grafos: [
 		{
 			titulo: "BFS",
 			url: "/contenidos/bfs.html",
@@ -26,7 +26,7 @@ export default () => ({
 			imagen: "thumbnail_kruskal.png"
 		}
 	],
-	"listado-sorting": [
+	listado_ordenamiento: [
 		{
 			titulo: "Merge Sort",
 			url: "/contenidos/mergesort.html",
