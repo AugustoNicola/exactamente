@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.codigo t {
+	width: 20px;
+	display: inline-block;
+}

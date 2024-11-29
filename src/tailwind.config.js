@@ -15,7 +15,8 @@ module.exports = {
       },
       fontFamily: {
         exTitulos: ['Raleway', 'serif'],
-        exTexto: ['Rubik', 'sans-serif']
+        exTexto: ['Rubik', 'sans-serif'],
+        exCodigo: ['JetBrains Mono', 'monospace']
       }
     },
   },

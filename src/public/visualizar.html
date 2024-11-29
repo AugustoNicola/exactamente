@@ -6,23 +6,23 @@
   <title>Visualizador - Exactamente</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=JetBrains Mono&display=swap" rel="stylesheet">
   <link href="/assets/css/styles.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
   <script src="/assets/js/htmx.js"></script>
 </head>
-<body class="bg-exFondoOscuro">
+<body class="bg-exFondoOscuro h-screen flex flex-col">
   <div hx-get="/components/header.html" hx-trigger="load"></div>
-  <main class="flex flex-col flex-nowrap">
+  <main class="flex-1  h-screen flex flex-row flex-nowrap gap-3">
     <!-- Viz y botones -->
-    <div class="flex flex-col flex-nowrap justify-center  bg-exClaro">
+    <div class="basis-5/12  flex flex-col flex-nowrap justify-between  bg-exClaro">
       <!-- Visualizador -->
       <div class="">
         <img src="/assets/images/dummy_viz.png" alt="adaw">
       </div>
       
       <!-- Botonera -->
-      <div class="mb-4 flex flex-row flex-nowrap justify-center items-center gap-2">
+      <div class="mb-6 flex flex-row flex-nowrap justify-center items-center gap-2">
         <div class="relative">
           <button class="flex items-center justify-between  px-4 py-2 bg-exVerde text-white font font-exTitulos font-bold text-[20px] rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 hover:brightness-75">
           <span class="pr-2">Caso 1</span>
@@ -58,20 +58,166 @@
       </div>
     </div>
     <!-- MetaCodigo, Variables y Contexto -->
-    <div class="flex flex-col flex-nowrap">
+    <div class="basis-7/12 h-full flex flex-col flex-nowrap gap-3 justify-between ">
       <!-- MetaCodigo y Variables -->
-      <div class="flex flex-row flex-nowrap">
+      <div class="w-full h-full flex flex-row flex-nowrap gap-3">
         <!-- Metadata y Codigo -->
-        <div class="">
+        <div class="w-9/12 p-2 bg-exOscuro overflow-y-scroll">
+          <!-- Metadata -->
+          <div class="text-white mt-2">
+            <div class="flex flex-row flex-nowrap justify-between items-center">
+              <h2 class="font-exTitulos text-xl underline font-bold mb-2">Algoritmo de Dijkstra</h1>
+              
+              <a class="px-2 py-2 mb-3  font-exTitulos text-white text-lg text-center font-semibold bg-exCeleste rounded-md hover:brightness-75" href="/visualizar.html?concepto=bfs">Ver Explicación</a>
+            </div>
+            <span><b>Input:</b> G grafo pesado, V vértice</span> <br />
+            <span><b>Output:</b> vector de distancias D</span>
+          </div>
+          
+          <!-- Codigo -->
+          <div class="mt-3 codigo font-exCodigo text-white max-h-0">
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">1</div>
+              <div class="inline">para cada etc etc:</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">2</div>
+              <div class="inline"><t></t>ejecutar pinga</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">3</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">4</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">5</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">6</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">7</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">8</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">9</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">10</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">11</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">12</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">13</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">14</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">15</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">16</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">17</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">18</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">19</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">20</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">21</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">22</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">23</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">24</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">25</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">26</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">27</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">28</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">29</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+            <div class="block">
+              <div class="w-6 mr-1 inline-block text-end">30</div>
+              <div class="inline"><t></t><t></t>hacer esto otro</div>
+            </div>
+          </div>
         </div>
         
         <!-- Variables -->
-        <div class="">
+        <div class="w-3/12 px-4 bg-exOscuro text-white">
+          <h3 class="mt-4 font-exTitulos text-xl text-center font-bold mb-4 mx-3">Variables</h1>
+          <p class="font-exCodigo">sptSet</p>
+          <p class="font-exCodigo">>> 2</p>
+          <p class="font-exCodigo">listaEnlazada</p>
+          <p class="font-exCodigo">>> [2, 4, 5]</p>
+          <p class="font-exCodigo">recorridos</p>
+          <p class="font-exCodigo">>> [True, True, False, False, True]</p>
+          <p class="font-exCodigo">yaEstamos</p>
+          <p class="font-exCodigo">>> True</p>
+          <p class="font-exCodigo">masVariables</p>
+          <p class="font-exCodigo">>> 4.32</p>
         </div>
       </div>
       
       <!-- Contexto -->
-      <div class="">
+      <div class="bg-exOscuro text-white text-lg">
+        <p class="m-3">El nodo no visitado con menor distancia es el nodo 1. <br /> Lo marcamos como ya visitado <br /> Procedemos a recorrer sus vecinos (en cualquier orden).</p>
       </div>
     </div>
   </main>
