@@ -11,19 +11,50 @@
   <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
   <script src="/assets/js/htmx.js"></script>
 </head>
-<body class="bg-exClaro">
+<body class="bg-exFondoOscuro">
   <div hx-get="/components/header.html" hx-trigger="load"></div>
-  <main class="flex flex-col flex-nowrap bg-exFondoOscuro">
+  <main class="flex flex-col flex-nowrap">
     <!-- Viz y botones -->
     <div class="flex flex-col flex-nowrap justify-center  bg-exClaro">
       <!-- Visualizador -->
       <div class="">
-        
+        <img src="/assets/images/dummy_viz.png" alt="adaw">
       </div>
       
       <!-- Botonera -->
-      <div class="">
-        
+      <div class="mb-4 flex flex-row flex-nowrap justify-center items-center gap-2">
+        <div class="relative">
+          <button class="flex items-center justify-between  px-4 py-2 bg-exVerde text-white font font-exTitulos font-bold text-[20px] rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 hover:brightness-75">
+          <span class="pr-2">Caso 1</span>
+          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+        <button type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/flecha_doble_izq.png" alt="Volver al principio">
+        </button>
+        <button type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/flecha_izq.png" alt="Volver al principio">
+        </button>
+        <button type="button" class="bg-exCeleste px-6 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/avanzar.png" alt="Volver al principio">
+        </button>
+        <button type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/flecha_der.png" alt="Volver al principio">
+        </button>
+        <button type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/flecha_doble_der.png" alt="Volver al principio">
+        </button>
+        <div class="relative">
+            <button class="flex items-center justify-between  px-4 py-2 bg-exCeleste text-white font font-exTitulos font-bold text-[20px] rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 hover:brightness-75">
+            <span class="pr-2">1.5x</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+        <div class="px-4 py-2 rounded-lg text-white bg-exVerde font-exTitulos font-bold text-[20px]">23/140</div>
       </div>
     </div>
     <!-- MetaCodigo, Variables y Contexto -->
