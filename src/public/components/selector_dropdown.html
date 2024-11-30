@@ -1,0 +1,45 @@
+<div 
+    x-data="{open, options, selected, color}" 
+    class="relative inline-block text-left"
+>
+    <!-- Button -->
+    <button
+        @click="open = !open"
+        class="flex items-center justify-between  px-4 py-2 text-white font font-exTitulos font-bold text-[20px] rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 hover:brightness-75"
+        :class="{
+            'bg-exVerde': color === 'exVerde',
+            'bg-exCeleste': color === 'exCeleste'
+        }"
+    >
+        <span x-text="selected"></span>
+        <svg 
+            class="-mr-1 ml-2 h-5 w-5" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 20 20" 
+            fill="currentColor" 
+            aria-hidden="true"
+        >
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <div 
+        x-show="open" 
+        @click.away="open = false" 
+        class="absolute left-0 bottom-full mb-2 z-10 mt-2 w-56 origin-top-right rounded-md text-black bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        role="menu"
+    >
+        <div class="py-1" role="none">
+            <template x-for="option in options" :key="option">
+                <a 
+                    @click.prevent="selected = option; open = false"
+                    href="#" 
+                    class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:text-gray-900" 
+                    role="menuitem"
+                    x-text="option"
+                >
+                </a>
+            </template>
+        </div>
+    </div>
+</div>
