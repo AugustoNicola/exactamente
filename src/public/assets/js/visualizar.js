@@ -1,4 +1,6 @@
 import listado from './data/listado.js';
+import prueba from './simulaciones/prueba1.js';
+import codigo from './codigos/prueba1.js';
 import Alpine from 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/module.esm.js';
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -173,24 +175,80 @@ function renderGrafo(nodos, aristas) {
         );
 }
 
-document.addEventListener('alpine:init', () => {
-	Alpine.data('listado', listado)
-    
-    let nodos = {
-        1: {id: "1", label: "A", estilo: "gris", x: 60.0, y: 35.0},
-        2: {id: "2", label: "B", estilo: "gris", x: 30.0, y: 50.0},
-        3: {id: "3", label: "C", estilo: "gris", x: 70.0, y: 70.0},
-        4: {id: "4", label: "Mati", estilo: "gris", x: 80.0, y: 20.0}
+function renderSintaxis(texto) {
+    let textoConSaltos = texto.replace(/\n/g, '<br />');
+    // RegEx para renderizar colores de acuerdo al formato COLOR{texto}
+    const regex = /(~?[A-Za-z]+)\{([^\}]+)\}/g;
+    let textoRenderizado = textoConSaltos.replace(regex, (match, color, texto) => {
+        if (color[0] == '~') {
+            return `<span class="font-bold text-ex${color.substring(1)}">${texto}</span>`;
+        } else {
+            return `<span class="text-ex${color}">${texto}</span>`;
+        }
+    });
+    return textoRenderizado
+}
+
+function cargarEstado(estado) {
+    // Renderizar en visualizador
+    switch (estado.visualizacion) {
+        case "grafo":
+            renderGrafo(estado.render.nodos, estado.render.aristas)
+            break;
+        default:
+            break;
     }
     
-    let aristas = [
-        {fuente: 1, destino: 2, label: "3", estilo: "gris", dirigido: false},
-        {fuente: 1, destino: 3, label: "5", estilo: "gris", dirigido: false},
-        {fuente: 3, destino: 2, label: "1", estilo: "gris", dirigido: false},
-        {fuente: 4, destino: 1, label: "9", estilo: "gris", dirigido: false}
-    ]
+    // Mostrar variables
+    const padreVariables = document.getElementById("variables");
+    padreVariables.innerHTML = "";
+    Object.entries(estado.variables).forEach(([variable, valor]) => {
+        const pVariable = document.createElement("p");
+        pVariable.textContent = variable;
+        pVariable.classList.add("font-exCodigo");
+        padreVariables.appendChild(pVariable);
+        
+        const pValor = document.createElement("p");
+        pValor.textContent = `>>> ${valor}`;
+        pValor.classList.add("font-exCodigo");
+        pValor.classList.add(estado.variablesAlteradas[variable] ? "text-exVerde" : "text-exGrisOscuro");
+        padreVariables.appendChild(pValor);
+    })
     
-    renderGrafo(nodos, aristas)
+    // Seleccionar línea de código
+    const padreCodigo = document.getElementById("codigo");
+    Array.from(padreCodigo.children).forEach((tag, indice) => {
+        if (indice + 1 == estado.linea) {
+            tag.classList.add("seleccionada")
+        } else {
+            tag.classList.remove("seleccionada")
+        }
+    });
+    
+    // Mostrar contexto
+    const padreContexto = document.getElementById("contexto");
+    const pContexto = padreContexto.children[0];
+    pContexto.innerHTML = renderSintaxis(estado.contexto);
+    
+    
+}
+
+function renderCodigo(codigo) {
+    let padreCodigo = document.getElementById("codigo");
+    //padreCodigo.innerHTML = "";
+    codigo.forEach((linea, indice) => {
+        padreCodigo.innerHTML += `<div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">${indice + 1}</div><div class="inline whitespace-pre select-text">${renderSintaxis(linea)}</div></div>`
+    })
+}
+
+document.addEventListener('alpine:init', () => {
+	Alpine.data('listado', listado)
+    let simulacion = prueba().estados
+    let rip = 0
+    
+    renderCodigo(codigo().codigo)
+    cargarEstado(simulacion[0])
+    //renderGrafo(nodos, aristas)
 })
 
 window.Alpine = Alpine;

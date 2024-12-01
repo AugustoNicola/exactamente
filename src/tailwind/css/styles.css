@@ -6,3 +6,7 @@
 	width: 20px;
 	display: inline-block;
 }
+
+.seleccionada {
+	background-color: rgba(80, 88, 0, 0.75);
+}

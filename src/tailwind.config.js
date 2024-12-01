@@ -2,6 +2,10 @@ module.exports = {
   content: [
     './public/**/*.html'
   ],
+  safelist: [
+    'mr-3',
+    'text-exComentario'
+  ],
   theme: {
     extend: {
       colors: {
@@ -12,7 +16,8 @@ module.exports = {
         'exGris': "#d6d6d6",
         'exVerdeOscuro': "#387467",
         'exFondoOscuro': "#2c554a",
-        'exGrisOscuro': "#ababab"
+        'exGrisOscuro': "#ababab",
+        'exComentario': "#6b6b6b"
       },
       fontFamily: {
         exTitulos: ['Raleway', 'serif'],
