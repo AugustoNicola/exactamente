@@ -242,21 +242,35 @@ function renderCodigo(codigo) {
 }
 
 document.addEventListener('alpine:init', () => {
-	Alpine.data('listado', listado)
     var simulacion = prueba().estados
-    var rip = 0
+    Alpine.store('simulacion', {
+        rip: 0,
+        ultimoEstado: simulacion.length - 1
+    })
     
     renderCodigo(codigo().codigo)
-    cargarEstado(simulacion[rip])
+    cargarEstado(simulacion[Alpine.store('simulacion').rip])
     
     document.getElementById("btn-adelante").addEventListener("click", () => {
-        rip++;
-        cargarEstado(simulacion[rip]);
+        if(Alpine.store('simulacion').rip >= simulacion.length - 1) return;
+        Alpine.store('simulacion').rip++;
+        cargarEstado(simulacion[Alpine.store('simulacion').rip]);
     });
     
     document.getElementById("btn-atras").addEventListener("click", () => {
-        rip--;
-        cargarEstado(simulacion[rip]);
+        if(Alpine.store('simulacion').rip <= 0) return;
+        Alpine.store('simulacion').rip--;
+        cargarEstado(simulacion[Alpine.store('simulacion').rip]);
+    })
+    
+    document.getElementById("btn-reiniciar").addEventListener("click", () => {
+        Alpine.store('simulacion').rip = 0;
+        cargarEstado(simulacion[Alpine.store('simulacion').rip]);
+    })
+    
+    document.getElementById("btn-final").addEventListener("click", () => {
+        Alpine.store('simulacion').rip = simulacion.length - 1;
+        cargarEstado(simulacion[Alpine.store('simulacion').rip]);
     })
 })
 
