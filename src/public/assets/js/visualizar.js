@@ -338,8 +338,16 @@ document.addEventListener('alpine:init', () => {
         Alpine.store('simulacion').velocidad = e.detail
     })
     
+    const queryParams = new URLSearchParams(window.location.search);
+    const nombreCodigo = queryParams.get('codigo');
     
-    import(`./simulaciones/prueba2.js`)
+    import(`./codigos/${nombreCodigo}.js`)
+        .then((modulo) => {
+            codigo = modulo.default();
+            renderCodigo(codigo);
+        });
+    
+    import(`./simulaciones/${nombreCodigo}/${nombreCodigo}1.js`)
         .then((modulo) => {
             simulacion = modulo.default().estados;
             Alpine.store('simulacion', {
@@ -351,11 +359,7 @@ document.addEventListener('alpine:init', () => {
             cargarEstado(simulacion[Alpine.store('simulacion').rip])
             
         });
-    import(`./codigos/prueba2.js`)
-        .then((modulo) => {
-            codigo = modulo.default();
-            renderCodigo(codigo);
-        });
+    
     
     
     
