@@ -22,26 +22,26 @@
       </div>
       
       <!-- Botonera -->
-      <div class="flex-initial basis-2/12 mb-6 flex flex-row flex-nowrap justify-center items-center gap-2">
+      <div id="btn-caso" class="flex-initial basis-2/12 mb-6 flex flex-row flex-nowrap justify-center items-center gap-2">
         <div x-data="{ open: false, options: ['Caso 1', 'Caso 2', 'Caso 3'], selected: 'Caso 1', color: 'exVerde' }" hx-get="/components/selector_dropdown.html" hx-trigger="load" hx-target="this" class="inline-block">
       </div>
-        <button type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
+        <button id="btn-reiniciar" type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
           <img class="w-10 h-10" src="/assets/images/flecha_doble_izq.png" alt="Volver al principio">
         </button>
-        <button type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
-          <img class="w-10 h-10" src="/assets/images/flecha_izq.png" alt="Volver al principio">
+        <button id="btn-atras" type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/flecha_izq.png" alt="Retroceder un paso">
         </button>
-        <button type="button" class="bg-exCeleste px-6 py-1 rounded-lg hover:brightness-75">
-          <img class="w-10 h-10" src="/assets/images/avanzar.png" alt="Volver al principio">
+        <button id="btn-ejecutar" type="button" class="bg-exCeleste px-6 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/avanzar.png" alt="Ejecutar automáticamente">
         </button>
-        <button type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
-          <img class="w-10 h-10" src="/assets/images/flecha_der.png" alt="Volver al principio">
+        <button id="btn-adelante" type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/flecha_der.png" alt="Avanzar un paso">
         </button>
-        <button type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
-          <img class="w-10 h-10" src="/assets/images/flecha_doble_der.png" alt="Volver al principio">
+        <button id="btn-final" type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
+          <img class="w-10 h-10" src="/assets/images/flecha_doble_der.png" alt="Ir al final">
         </button>
-        <div x-data="{ open: false, options: ['0.25x', '0.5x', '1.0x', '1.25x', '1.5x', '2.0x'], selected: '1.0x', color: 'exCeleste' }" hx-get="/components/selector_dropdown.html" hx-trigger="load" hx-target="this" class="inline-block"></div>
-        <div class="inline-block px-4 py-2 rounded-lg text-white bg-exVerde font-exTitulos font-bold text-[20px]">23/140</div>
+        <div id="btn-velocidad" x-data="{ open: false, options: ['0.25x', '0.5x', '1.0x', '1.25x', '1.5x', '2.0x'], selected: '1.0x', color: 'exCeleste' }" hx-get="/components/selector_dropdown.html" hx-trigger="load" hx-target="this" class="inline-block"></div>
+        <div id="contador-pasos" class="inline-block px-4 py-2 rounded-lg text-white bg-exVerde font-exTitulos font-bold text-[20px]">23/140</div>
       </div>
     </div>
     <!-- MetaCodigo, Variables y Contexto -->

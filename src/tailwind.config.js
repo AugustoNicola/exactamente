@@ -4,7 +4,9 @@ module.exports = {
   ],
   safelist: [
     'mr-3',
-    'text-exComentario'
+    'text-exComentario',
+    'text-exVioleta',
+    'text-exGris'
   ],
   theme: {
     extend: {
@@ -17,7 +19,8 @@ module.exports = {
         'exVerdeOscuro': "#387467",
         'exFondoOscuro': "#2c554a",
         'exGrisOscuro': "#ababab",
-        'exComentario': "#6b6b6b"
+        'exComentario': "#6b6b6b",
+        'exVioleta': "#8056a2"
       },
       fontFamily: {
         exTitulos: ['Raleway', 'serif'],

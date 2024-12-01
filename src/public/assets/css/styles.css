@@ -1042,6 +1042,11 @@ video {
   color: rgb(107 107 107 / var(--tw-text-opacity));
 }
 
+.text-exGris {
+  --tw-text-opacity: 1;
+  color: rgb(214 214 214 / var(--tw-text-opacity));
+}
+
 .text-exGrisOscuro {
   --tw-text-opacity: 1;
   color: rgb(171 171 171 / var(--tw-text-opacity));
@@ -1055,6 +1060,11 @@ video {
 .text-exVerdeOscuro {
   --tw-text-opacity: 1;
   color: rgb(56 116 103 / var(--tw-text-opacity));
+}
+
+.text-exVioleta {
+  --tw-text-opacity: 1;
+  color: rgb(128 86 162 / var(--tw-text-opacity));
 }
 
 .text-white {

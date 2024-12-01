@@ -243,12 +243,21 @@ function renderCodigo(codigo) {
 
 document.addEventListener('alpine:init', () => {
 	Alpine.data('listado', listado)
-    let simulacion = prueba().estados
-    let rip = 0
+    var simulacion = prueba().estados
+    var rip = 0
     
     renderCodigo(codigo().codigo)
-    cargarEstado(simulacion[0])
-    //renderGrafo(nodos, aristas)
+    cargarEstado(simulacion[rip])
+    
+    document.getElementById("btn-adelante").addEventListener("click", () => {
+        rip++;
+        cargarEstado(simulacion[rip]);
+    });
+    
+    document.getElementById("btn-atras").addEventListener("click", () => {
+        rip--;
+        cargarEstado(simulacion[rip]);
+    })
 })
 
 window.Alpine = Alpine;
