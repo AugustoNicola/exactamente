@@ -6,7 +6,9 @@ module.exports = {
     'mr-3',
     'text-exComentario',
     'text-exVioleta',
-    'text-exGris'
+    'text-exGris',
+    'text-exGrisOscuro',
+    'hidden'
   ],
   theme: {
     extend: {

@@ -1,6 +1,5 @@
-import listado from './data/listado.js';
-import prueba from './simulaciones/prueba1.js';
-import codigo from './codigos/prueba1.js';
+import simulacionDummy from './simulaciones/dummy.js';
+import codigoDummy from './codigos/dummy.js';
 import Alpine from 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/module.esm.js';
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -178,13 +177,14 @@ function renderGrafo(nodos, aristas) {
 function renderSintaxis(texto) {
     let textoConSaltos = texto.replace(/\n/g, '<br />');
     // RegEx para renderizar colores de acuerdo al formato COLOR{texto}
-    const regex = /(~?[A-Za-z]+)\{([^\}]+)\}/g;
-    let textoRenderizado = textoConSaltos.replace(regex, (match, color, texto) => {
-        if (color[0] == '~') {
-            return `<span class="font-bold text-ex${color.substring(1)}">${texto}</span>`;
-        } else {
-            return `<span class="text-ex${color}">${texto}</span>`;
-        }
+    const regex = /([~#]+)([A-Za-z]*)\{([^\}]+)\}/g;
+    let textoRenderizado = textoConSaltos.replace(regex, (match, simbolos, color, texto) => {
+        //console.log(simbolos)
+        let clases = "";
+        if(simbolos.includes("~")) clases += "font-bold ";
+        if(simbolos.includes("#")) clases += "font-exCodigo ";
+        if(color != "") clases += `text-ex${color} `;
+        return `<span class="${clases}">${texto}</span>`
     });
     return textoRenderizado
 }
@@ -229,14 +229,34 @@ function cargarEstado(estado) {
     const padreContexto = document.getElementById("contexto");
     const pContexto = padreContexto.children[0];
     pContexto.innerHTML = renderSintaxis(estado.contexto);
-    
-    
 }
 
-function renderCodigo(codigo) {
+function renderCodigo(objetoCodigo) {
+    // Cargamos el título principal
+    let tituloVisualizador = document.getElementById("titulo-visualizador");
+    tituloVisualizador.innerHTML = objetoCodigo.titulo;
+    
+    // Cargamos el enlace correcto para el botón de 'Ver Explicación'
+    let verExplicacion = document.getElementById("link-ver-explicacion");
+    if (objetoCodigo.linkExplicacion != null) {
+        verExplicacion.href = objetoCodigo.linkExplicacion
+        verExplicacion.classList.remove('hidden');
+    } else {
+        verExplicacion.classList.add('hidden');
+    }
+    
+    // Cargamos la descripción del input
+    let descripcionInput = document.getElementById("descripcion-input");
+    descripcionInput.innerHTML = `<b>Input:</b> ${renderSintaxis(objetoCodigo.input)}`;
+    
+    // Cargamos la descripción del output
+    let descripcionOutput = document.getElementById("descripcion-output");
+    descripcionOutput.innerHTML = `<b>Output:</b> ${renderSintaxis(objetoCodigo.output)}`;
+    
+    // Cargamos las líneas de código en el visualizador
     let padreCodigo = document.getElementById("codigo");
-    //padreCodigo.innerHTML = "";
-    codigo.forEach((linea, indice) => {
+    padreCodigo.innerHTML = "";
+    objetoCodigo.lineas.forEach((linea, indice) => {
         padreCodigo.innerHTML += `<div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">${indice + 1}</div><div class="inline whitespace-pre select-text">${renderSintaxis(linea)}</div></div>`
     })
 }
@@ -245,10 +265,18 @@ function calcularVelocidadMs(velocidadBase, multiplicador) {
     return (1.0 / multiplicador.substring(0, multiplicador.length-1)) * velocidadBase;
 }
 
+
+var simulacion = null;
+var codigo = null;
+var velocidadBaseMs = 1000;
+var intervalID = null; // acá guardamos el handle de setInterval
+
+
 document.addEventListener('alpine:init', () => {
-    var simulacion = prueba().estados
-    var velocidadBaseMs = 1000;
-    let intervalID = null; // acá guardamos el handle de setInterval
+    // Cargamos simulacion y codigo dummy
+    simulacion = simulacionDummy().estados
+    codigo = codigoDummy()
+    
     Alpine.store('simulacion', {
         rip: 0,
         ultimoEstado: simulacion.length - 1,
@@ -256,8 +284,8 @@ document.addEventListener('alpine:init', () => {
         velocidad: '1.0x'
     })
     
-    renderCodigo(codigo().codigo)
-    cargarEstado(simulacion[Alpine.store('simulacion').rip])
+    renderCodigo(codigo);
+    cargarEstado(simulacion[Alpine.store('simulacion').rip]);
     
     document.getElementById("btn-adelante").addEventListener("click", () => {
         if(Alpine.store('simulacion').rip >= simulacion.length - 1) return;
@@ -309,6 +337,28 @@ document.addEventListener('alpine:init', () => {
     document.addEventListener("btn-velocidad", e => {
         Alpine.store('simulacion').velocidad = e.detail
     })
+    
+    
+    import(`./simulaciones/prueba2.js`)
+        .then((modulo) => {
+            simulacion = modulo.default().estados;
+            Alpine.store('simulacion', {
+                rip: 0,
+                ultimoEstado: simulacion.length - 1,
+                reproduciendo: false,
+                velocidad: '1.0x'
+            });
+            cargarEstado(simulacion[Alpine.store('simulacion').rip])
+            
+        });
+    import(`./codigos/prueba2.js`)
+        .then((modulo) => {
+            codigo = modulo.default();
+            renderCodigo(codigo);
+        });
+    
+    
+    
 })
 
 window.Alpine = Alpine;

@@ -53,12 +53,12 @@
           <!-- Metadata -->
           <div class="text-white mt-2">
             <div class="flex flex-row flex-nowrap justify-between items-center">
-              <h2 class="font-exTitulos text-xl underline font-bold mb-2">Algoritmo de Dijkstra</h1>
+              <h2 id="titulo-visualizador" class="font-exTitulos text-xl underline font-bold mb-2"></h1>
               
-              <a class="px-2 py-2 mb-3  font-exTitulos text-white text-lg text-center font-semibold bg-exCeleste rounded-md hover:brightness-75" href="/visualizar.html?concepto=bfs">Ver Explicación</a>
+              <a id="link-ver-explicacion" class="px-2 py-2 mb-3  font-exTitulos text-white text-lg text-center font-semibold bg-exCeleste rounded-md hover:brightness-75 hidden" href="/visualizar.html?concepto=bfs">Ver Explicación</a>
             </div>
-            <span><b>Input:</b> G grafo pesado, V vértice</span> <br />
-            <span><b>Output:</b> vector de distancias D</span>
+            <span id="descripcion-input"></span> <br />
+            <span id="descripcion-output"></span>
           </div>
           
           <!-- Codigo -->
@@ -80,7 +80,7 @@
       
       <!-- Contexto -->
       <div id="contexto" class="basis-2/12 bg-exOscuro text-white text-lg overflow-y-scroll">
-        <p class="m-3">El nodo <span class="font-bold text-exGrisOscuro">no visitado</span> con menor distancia es el <span class="font-bold text-exCeleste">nodo 1</span>. <br /> Lo marcamos como <span class="font-bold text-exVerde">ya visitado</span>. <br /> Procedemos a recorrer sus vecinos (en cualquier orden).</p>
+        <p class="m-3"></p>
       </div>
     </div>
   </main>
