@@ -204,12 +204,12 @@ function cargarEstado(estado) {
     padreVariables.innerHTML = "";
     Object.entries(estado.variables).forEach(([variable, valor]) => {
         const pVariable = document.createElement("p");
-        pVariable.textContent = variable;
+        pVariable.textContent = `>>> ${variable}`;
         pVariable.classList.add("font-exCodigo");
         padreVariables.appendChild(pVariable);
         
         const pValor = document.createElement("p");
-        pValor.textContent = `>>> ${valor}`;
+        pValor.textContent = `${valor}`;
         pValor.classList.add("font-exCodigo");
         pValor.classList.add(estado.variablesAlteradas[variable] ? "text-exVerde" : "text-exGrisOscuro");
         padreVariables.appendChild(pValor);
@@ -241,11 +241,19 @@ function renderCodigo(codigo) {
     })
 }
 
+function calcularVelocidadMs(velocidadBase, multiplicador) {
+    return (1.0 / multiplicador.substring(0, multiplicador.length-1)) * velocidadBase;
+}
+
 document.addEventListener('alpine:init', () => {
     var simulacion = prueba().estados
+    var velocidadBaseMs = 1000;
+    let intervalID = null; // acá guardamos el handle de setInterval
     Alpine.store('simulacion', {
         rip: 0,
-        ultimoEstado: simulacion.length - 1
+        ultimoEstado: simulacion.length - 1,
+        reproduciendo: false,
+        velocidad: '1.0x'
     })
     
     renderCodigo(codigo().codigo)
@@ -271,6 +279,35 @@ document.addEventListener('alpine:init', () => {
     document.getElementById("btn-final").addEventListener("click", () => {
         Alpine.store('simulacion').rip = simulacion.length - 1;
         cargarEstado(simulacion[Alpine.store('simulacion').rip]);
+    })
+    
+    document.getElementById("btn-ejecutar").addEventListener("click", () => {
+        Alpine.store("simulacion").reproduciendo = ! Alpine.store("simulacion").reproduciendo
+        if (Alpine.store("simulacion").reproduciendo) {
+            // Reanudar reproduccion
+            if(intervalID) clearInterval(intervalID);
+            intervalID = setInterval(() => {
+                if (Alpine.store('simulacion').rip < simulacion.length - 1) {
+                    // No llegamos al ultimo estado, avanzamos
+                    Alpine.store('simulacion').rip++;
+                    cargarEstado(simulacion[Alpine.store('simulacion').rip]);
+                } else {
+                    // Llegamos al ultimo estado, detenemos el interval
+                    clearInterval(intervalID);
+                    Alpine.store('simulacion').reproduciendo = false;
+                }
+            }, calcularVelocidadMs(velocidadBaseMs, Alpine.store('simulacion').velocidad));
+        } else {
+            // Pausar reproduccion
+            if (intervalID) {
+                clearInterval(intervalID);
+                intervalID = null;
+            }
+        }
+    })
+    
+    document.addEventListener("btn-velocidad", e => {
+        Alpine.store('simulacion').velocidad = e.detail
     })
 })
 

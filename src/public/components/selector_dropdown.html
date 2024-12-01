@@ -1,5 +1,11 @@
 <div 
-    x-data="{open, options, selected, color}" 
+    x-data="{
+        open, options, selected, color, name,
+        setSelected(valor) {
+            this.selected = valor;
+            $dispatch('btn-' + this.name, valor);
+        }
+    }" 
     class="relative inline-block text-left"
 >
     <!-- Button -->
@@ -32,7 +38,7 @@
         <div class="py-1" role="none">
             <template x-for="option in options" :key="option">
                 <a 
-                    @click.prevent="selected = option; open = false"
+                    @click.prevent="setSelected(option); open = false"
                     href="#" 
                     class="block px-4 py-2 text-sm text-black hover:bg-gray-100 hover:text-gray-900" 
                     role="menuitem"
