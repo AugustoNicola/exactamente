@@ -1,179 +1,11 @@
-import simulacionDummy from './simulaciones/dummy.js';
-import codigoDummy from './codigos/dummy.js';
 import Alpine from 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/module.esm.js';
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+import { renderGrafo } from './grafo.js'; './grafo.js'
+//import codigoDummy from './codigos/dummy.js';
+//import simulacionDummy from './simulaciones/dummy.js';
 
-function svgPos(dimension, porcentaje) {
-    if (porcentaje < 0.0 || porcentaje > 100.0) {
-        throw new Error("Porcentaje inválido!")
-    }
-    return Number((porcentaje / 100.0) * dimension)
-}
 
-function estilosNodo(v) {
-    switch (v.estilo) {
-        case "verde":
-            return {
-                "color-borde": "#67cbb0",
-                "color-interno": "#b0eedd"
-            }
-        case "celeste":
-            return {
-                "color-borde": "#008296",
-                "color-interno": "#78cfdc"
-            }
-        case "gris":
-        default:
-            return {
-                "color-borde": "#464646",
-                "color-interno": "#aeaeae"
-            }
-    }
-}
-
-function estilosArista(e) {
-    switch (e.estilo) {
-        case "verde":
-            return {
-                "stroke": "#387467",
-                "stroke-width": 15
-            }
-        case "celeste":
-            return {
-                "stroke": "#008296",
-                "stroke-width": 15
-            }
-        case "gris":
-        default:
-            return {
-                "stroke": "#2c2c2c",
-                "stroke-width": 15
-            }
-    }
-}
-
-function renderGrafo(nodos, aristas) {
-    const width = document.getElementById('canvas-container').clientWidth;
-    const height = document.getElementById('canvas-container').clientHeight;
-    
-    document.querySelector("#canvas-visualizador").innerHTML = "";
-    
-    const svg = d3.select("#canvas-visualizador")
-        .attr("width", width)
-        .attr("height", height);
-    
-    // Aristas
-    svg.selectAll("line")
-    .data(aristas, e => `${e.fuente}-${e.destino}`) // creamos IDs unicos para las aristas
-    .join(
-        enter => enter.append("line")
-        .attr("x1", e => svgPos(width, nodos[e.fuente].x))
-        .attr("y1", e => svgPos(height, nodos[e.fuente].y))
-        .attr("x2", e => svgPos(width, nodos[e.destino].x))
-        .attr("y2", e => svgPos(height, nodos[e.destino].y))
-        .attr("stroke", e => estilosArista(e)["stroke"])
-        .attr("stroke-width", e => estilosArista(e)["stroke-width"]),
-        update => update.attr("stroke", e => estilosArista(e)["stroke"]),
-        exit => exit.remove()
-    );
-    
-    if(aristas.length > 0 && aristas[0].label != null) {
-        // Cajas de las aristas
-        svg.selectAll(".edge-square")
-            .data(aristas, e => `${e.source}-${e.target}`)
-            .join(
-                enter => enter.append("rect")
-                .attr("x", e => {
-                    const midX = (svgPos(width, nodos[e.fuente].x) + svgPos(width, nodos[e.destino].x))/2.0
-                    return midX - 40.0/2.0;
-                })
-                .attr("y", e => {
-                    const midY = (svgPos(height, nodos[e.fuente].y) + svgPos(height, nodos[e.destino].y))/2.0
-                    return midY - 40.0/2.0;
-                })
-                .attr("width", 40)
-                .attr("height", 40)
-                .attr("fill", e => estilosArista(e)["stroke"])
-            );
-            
-        // Pesos de las aristas
-        svg.append("g")
-            .selectAll("text")
-            .data(aristas, e => `${e.source}-${e.target}`)
-            .join(
-                enter => enter.append("text")
-                    .attr("x", e => {
-                        const midX = (svgPos(width, nodos[e.fuente].x) + svgPos(width, nodos[e.destino].x))/2.0
-                        return midX;
-                    })
-                    .attr("y", e => {
-                        const midY = (svgPos(height, nodos[e.fuente].y) + svgPos(height, nodos[e.destino].y))/2.0
-                        return midY + 8.0;
-                    })
-                    .text(e => e.label)
-                    .attr("text-anchor", "middle")
-                    .attr("font-size", "24px")
-                    .attr("font-weight", "bold")
-                    .attr("font-family", "Rubik, serif")
-                    .attr("fill", "#ffffff")
-            );
-    }
-    
-    // Bordes de los nodos
-    svg.append("g")
-        .selectAll("circle")
-        .data(Object.entries(nodos), ([id, nodo]) => id)
-        .join(
-            enter => enter.append("circle")
-                .attr("cx", ([, nodo]) => svgPos(width, nodo.x))
-                .attr("cy", ([, nodo]) => svgPos(height, nodo.y))
-                .attr("r", 55)
-                .attr("fill", ([, nodo]) => estilosNodo(nodo)["color-borde"])
-        );
-    
-    // Cuerpo de los nodos
-    svg.append("g")
-    .selectAll("circle")
-    .data(Object.entries(nodos), ([id, nodo]) => id)
-    .join(
-        enter => enter.append("circle")
-            .attr("cx", ([, nodo]) => svgPos(width, nodo.x))
-            .attr("cy", ([, nodo]) => svgPos(height, nodo.y))
-            .attr("r", 45)
-            .attr("fill", ([, nodo]) => estilosNodo(nodo)["color-interno"])
-    );
-    
-    // IDs de los nodos
-    svg.append("g")
-        .selectAll("text")
-        .data(Object.entries(nodos), ([id, nodo]) => id)
-        .join(
-            enter => enter.append("text")
-                .attr("x", ([, nodo]) => svgPos(width, nodo.x))
-                .attr("y", ([, nodo]) => svgPos(height, nodo.y) - 8)
-                .text(([id, ]) => id)
-                .attr("text-anchor", "middle")
-                .attr("font-size", "32px")
-                .attr("font-weight", "bold")
-                .attr("font-family", "Rubik, serif")
-                .attr("fill", "#000000")
-        );
-    
-    // Labels de los nodos
-    svg.append("g")
-        .selectAll("text")
-        .data(Object.entries(nodos), ([id, nodo]) => id)
-        .join(
-            enter => enter.append("text")
-                .attr("x", ([, nodo]) => svgPos(width, nodo.x))
-                .attr("y", ([, nodo]) => svgPos(height, nodo.y) + 30)
-                .text(([, nodo]) => nodo.label)
-                .attr("text-anchor", "middle")
-                .attr("font-size", "24px")
-                .attr("font-weight", "bold")
-                .attr("font-family", "Rubik, serif")
-                .attr("fill", "#000000")
-        );
+function calcularVelocidadMs(velocidadBase, multiplicador) {
+    return (1.0 / multiplicador.substring(0, multiplicador.length-1)) * velocidadBase;
 }
 
 function renderSintaxis(texto) {
@@ -190,7 +22,7 @@ function renderSintaxis(texto) {
     return textoRenderizado
 }
 
-function cargarEstado(estado) {
+function renderEstado(estado) {
     // Renderizar en visualizador
     switch (estado.visualizacion) {
         case "grafo":
@@ -266,11 +98,6 @@ function renderCodigo(objetoCodigo) {
     })
 }
 
-function calcularVelocidadMs(velocidadBase, multiplicador) {
-    return (1.0 / multiplicador.substring(0, multiplicador.length-1)) * velocidadBase;
-}
-
-
 var simulacion = null;
 var codigo = null;
 var velocidadBaseMs = 1000;
@@ -279,75 +106,48 @@ var intervalID = null; // acá guardamos el handle de setInterval
 
 document.addEventListener('alpine:init', () => {
     // Cargamos simulacion y codigo dummy
-    simulacion = simulacionDummy().estados
-    codigo = codigoDummy()
+    //simulacion = simulacionDummy().estados
+    //codigo = codigoDummy()
     
+    // definimos el store de simulación en un estado inicial dummy
     Alpine.store('simulacion', {
-        nombreCodigo: 'dummy',
-        rip: 0,
-        ultimoEstado: simulacion.length - 1,
-        reproduciendo: false,
-        velocidad: '1.0x',
-        casoActual: 'Caso 1',
-        getCasos() {
+        nombreCodigo: 'dummy',                // nombre de la estructura código a usar
+        rip: 0,                               // indice del estado actual
+        ultimoEstado: 0,                      // indice del último estado
+        reproduciendo: false,                 // booleano que controla la reproducción automática
+        velocidad: '1.0x',                    // texto seleccionado en el selector de velocidad
+        casoActual: 'Caso 1',                 // texto seleccionado en el selector de casos
+        getCasos() {                          // getter para las opciones de caso numeradas desde 1
             return Array.from({ length: codigo.cantidadCasos }, (_, index) => `Caso ${index + 1}`)
         }
     });
     
-    renderCodigo(codigo);
-    cargarEstado(simulacion[Alpine.store('simulacion').rip]);
+    // Cargamos un código y simulación dummys para evitar errores de inicialización
+    //renderCodigo(codigo);
+    //renderEstado(simulacion[Alpine.store('simulacion').rip]);
     
-    document.getElementById("btn-adelante").addEventListener("click", () => {
-        if(Alpine.store('simulacion').rip >= simulacion.length - 1) return;
-        Alpine.store('simulacion').rip++;
-        cargarEstado(simulacion[Alpine.store('simulacion').rip]);
-    });
+    // Cargamos codigo del query string
+    const queryParams = new URLSearchParams(window.location.search);
+    const nombreCodigo = queryParams.get('codigo');
+    Alpine.store('simulacion').nombreCodigo = nombreCodigo;
+    Alpine.store('simulacion').casoActual = "Caso 1"; // por defecto cargamos el primer caso
     
-    document.getElementById("btn-atras").addEventListener("click", () => {
-        if(Alpine.store('simulacion').rip <= 0) return;
-        Alpine.store('simulacion').rip--;
-        cargarEstado(simulacion[Alpine.store('simulacion').rip]);
-    })
+    import(`./codigos/${nombreCodigo}.js`)
+        .then((modulo) => {
+            codigo = modulo.default();
+            renderCodigo(codigo);
+        });
     
-    document.getElementById("btn-reiniciar").addEventListener("click", () => {
-        Alpine.store('simulacion').rip = 0;
-        cargarEstado(simulacion[Alpine.store('simulacion').rip]);
-    })
+    import(`./simulaciones/${nombreCodigo}/${nombreCodigo}${1}.js`)
+        .then((modulo) => {
+            simulacion = modulo.default().estados;
+            Alpine.store('simulacion').ultimoEstado = simulacion.length - 1;
+            renderEstado(simulacion[Alpine.store('simulacion').rip])
+        });
     
-    document.getElementById("btn-final").addEventListener("click", () => {
-        Alpine.store('simulacion').rip = simulacion.length - 1;
-        cargarEstado(simulacion[Alpine.store('simulacion').rip]);
-    })
+    // Definimos los handlers de botones y controladores varios
     
-    document.getElementById("btn-ejecutar").addEventListener("click", () => {
-        Alpine.store("simulacion").reproduciendo = ! Alpine.store("simulacion").reproduciendo
-        if (Alpine.store("simulacion").reproduciendo) {
-            // Reanudar reproduccion
-            if(intervalID) clearInterval(intervalID);
-            intervalID = setInterval(() => {
-                if (Alpine.store('simulacion').rip < simulacion.length - 1) {
-                    // No llegamos al ultimo estado, avanzamos
-                    Alpine.store('simulacion').rip++;
-                    cargarEstado(simulacion[Alpine.store('simulacion').rip]);
-                } else {
-                    // Llegamos al ultimo estado, detenemos el interval
-                    clearInterval(intervalID);
-                    Alpine.store('simulacion').reproduciendo = false;
-                }
-            }, calcularVelocidadMs(velocidadBaseMs, Alpine.store('simulacion').velocidad));
-        } else {
-            // Pausar reproduccion
-            if (intervalID) {
-                clearInterval(intervalID);
-                intervalID = null;
-            }
-        }
-    })
-    
-    document.addEventListener("btn-velocidad", e => {
-        Alpine.store('simulacion').velocidad = e.detail
-    })
-    
+    // Handler del selector de casos [Caso X v]
     document.addEventListener("btn-caso", e => {
         Alpine.store('simulacion').casoActual = e.detail;
         let nombre = Alpine.store('simulacion').nombreCodigo;
@@ -362,31 +162,69 @@ document.addEventListener('alpine:init', () => {
                     clearInterval(intervalID);
                     intervalID = null;
                 }
-                cargarEstado(simulacion[Alpine.store('simulacion').rip])
+                renderEstado(simulacion[Alpine.store('simulacion').rip])
             });
     })
     
-    // Cargamos codigo del query string
-    const queryParams = new URLSearchParams(window.location.search);
-    const nombreCodigo = queryParams.get('codigo');
-    Alpine.store('simulacion').nombreCodigo = nombreCodigo;
-    Alpine.store('simulacion').casoActual = "Caso 1";
+    // Handler del botón de reiniciar [<<]
+    document.getElementById("btn-reiniciar").addEventListener("click", () => {
+        Alpine.store('simulacion').rip = 0;
+        renderEstado(simulacion[Alpine.store('simulacion').rip]);
+    })
     
-    import(`./codigos/${nombreCodigo}.js`)
-        .then((modulo) => {
-            codigo = modulo.default();
-            renderCodigo(codigo);
-        });
+    // Handler del botón de paso anterior [<]
+    document.getElementById("btn-atras").addEventListener("click", () => {
+        if(Alpine.store('simulacion').rip <= 0) return;
+        Alpine.store('simulacion').rip--;
+        renderEstado(simulacion[Alpine.store('simulacion').rip]);
+    })
     
-    import(`./simulaciones/${nombreCodigo}/${nombreCodigo}${1}.js`)
-        .then((modulo) => {
-            simulacion = modulo.default().estados;
-            Alpine.store('simulacion').rip = 0;
-            Alpine.store('simulacion').ultimoEstado = simulacion.length - 1;
-            Alpine.store('simulacion').reproduciendo = false;
-            Alpine.store('simulacion').velocidad = '1.0x';
-            cargarEstado(simulacion[Alpine.store('simulacion').rip])
-        });
+    // Handler del botón de ejecución automática [II]
+    document.getElementById("btn-ejecutar").addEventListener("click", () => {
+        Alpine.store("simulacion").reproduciendo = ! Alpine.store("simulacion").reproduciendo
+        if (Alpine.store("simulacion").reproduciendo) {
+            // Reanudar reproduccion
+            if(intervalID) clearInterval(intervalID);
+            intervalID = setInterval(() => {
+                if (Alpine.store('simulacion').rip < simulacion.length - 1) {
+                    // No llegamos al ultimo estado, avanzamos
+                    Alpine.store('simulacion').rip++;
+                    renderEstado(simulacion[Alpine.store('simulacion').rip]);
+                } else {
+                    // Llegamos al ultimo estado, detenemos el interval
+                    if (intervalID) {
+                        clearInterval(intervalID);
+                        intervalID = null;
+                    }
+                    Alpine.store('simulacion').reproduciendo = false;
+                }
+            }, calcularVelocidadMs(velocidadBaseMs, Alpine.store('simulacion').velocidad));
+        } else {
+            // Pausar reproduccion
+            if (intervalID) {
+                clearInterval(intervalID);
+                intervalID = null;
+            }
+        }
+    })
+    
+    // Handler del botón de siguiente paso [>]
+    document.getElementById("btn-adelante").addEventListener("click", () => {
+        if(Alpine.store('simulacion').rip >= simulacion.length - 1) return;
+        Alpine.store('simulacion').rip++;
+        renderEstado(simulacion[Alpine.store('simulacion').rip]);
+    });
+    
+    // Handler del botón de último paso [>>]
+    document.getElementById("btn-final").addEventListener("click", () => {
+        Alpine.store('simulacion').rip = simulacion.length - 1;
+        renderEstado(simulacion[Alpine.store('simulacion').rip]);
+    })
+    
+    // Handler del selector de velocidad [1.0x v]
+    document.addEventListener("btn-velocidad", e => {
+        Alpine.store('simulacion').velocidad = e.detail
+    })
 })
 
 window.Alpine = Alpine;
