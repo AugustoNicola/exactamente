@@ -56,6 +56,8 @@ function renderGrafo(nodos, aristas) {
     const width = document.getElementById('canvas-container').clientWidth;
     const height = document.getElementById('canvas-container').clientHeight;
     
+    document.querySelector("#canvas-visualizador").innerHTML = "";
+    
     const svg = d3.select("#canvas-visualizador")
         .attr("width", width)
         .attr("height", height);
@@ -179,7 +181,6 @@ function renderSintaxis(texto) {
     // RegEx para renderizar colores de acuerdo al formato COLOR{texto}
     const regex = /([~#]+)([A-Za-z]*)\{([^\}]+)\}/g;
     let textoRenderizado = textoConSaltos.replace(regex, (match, simbolos, color, texto) => {
-        //console.log(simbolos)
         let clases = "";
         if(simbolos.includes("~")) clases += "font-bold ";
         if(simbolos.includes("#")) clases += "font-exCodigo ";
@@ -232,6 +233,10 @@ function cargarEstado(estado) {
 }
 
 function renderCodigo(objetoCodigo) {
+    // Ajustamos la cantidad de casos seleccionables
+    Alpine.store('simulacion').casos = Array.from({ length: objetoCodigo.cantidadCasos }, (_, index) => `Caso ${index + 1}`);
+    Alpine.store('simulacion').casoActual = "Caso 1";
+    
     // Cargamos el título principal
     let tituloVisualizador = document.getElementById("titulo-visualizador");
     tituloVisualizador.innerHTML = objetoCodigo.titulo;
@@ -278,11 +283,16 @@ document.addEventListener('alpine:init', () => {
     codigo = codigoDummy()
     
     Alpine.store('simulacion', {
+        nombreCodigo: 'dummy',
         rip: 0,
         ultimoEstado: simulacion.length - 1,
         reproduciendo: false,
-        velocidad: '1.0x'
-    })
+        velocidad: '1.0x',
+        casoActual: 'Caso 1',
+        getCasos() {
+            return Array.from({ length: codigo.cantidadCasos }, (_, index) => `Caso ${index + 1}`)
+        }
+    });
     
     renderCodigo(codigo);
     cargarEstado(simulacion[Alpine.store('simulacion').rip]);
@@ -338,8 +348,29 @@ document.addEventListener('alpine:init', () => {
         Alpine.store('simulacion').velocidad = e.detail
     })
     
+    document.addEventListener("btn-caso", e => {
+        Alpine.store('simulacion').casoActual = e.detail;
+        let nombre = Alpine.store('simulacion').nombreCodigo;
+        let caso = parseInt(e.detail.match(/\d+/)[0]);
+        import(`./simulaciones/${nombre}/${nombre}${caso}.js`)
+            .then((modulo) => {
+                simulacion = modulo.default().estados;
+                Alpine.store('simulacion').rip = 0;
+                Alpine.store('simulacion').ultimoEstado = simulacion.length - 1;
+                Alpine.store('simulacion').reproduciendo = false;
+                if (intervalID) {
+                    clearInterval(intervalID);
+                    intervalID = null;
+                }
+                cargarEstado(simulacion[Alpine.store('simulacion').rip])
+            });
+    })
+    
+    // Cargamos codigo del query string
     const queryParams = new URLSearchParams(window.location.search);
     const nombreCodigo = queryParams.get('codigo');
+    Alpine.store('simulacion').nombreCodigo = nombreCodigo;
+    Alpine.store('simulacion').casoActual = "Caso 1";
     
     import(`./codigos/${nombreCodigo}.js`)
         .then((modulo) => {
@@ -347,22 +378,15 @@ document.addEventListener('alpine:init', () => {
             renderCodigo(codigo);
         });
     
-    import(`./simulaciones/${nombreCodigo}/${nombreCodigo}1.js`)
+    import(`./simulaciones/${nombreCodigo}/${nombreCodigo}${1}.js`)
         .then((modulo) => {
             simulacion = modulo.default().estados;
-            Alpine.store('simulacion', {
-                rip: 0,
-                ultimoEstado: simulacion.length - 1,
-                reproduciendo: false,
-                velocidad: '1.0x'
-            });
+            Alpine.store('simulacion').rip = 0;
+            Alpine.store('simulacion').ultimoEstado = simulacion.length - 1;
+            Alpine.store('simulacion').reproduciendo = false;
+            Alpine.store('simulacion').velocidad = '1.0x';
             cargarEstado(simulacion[Alpine.store('simulacion').rip])
-            
         });
-    
-    
-    
-    
 })
 
 window.Alpine = Alpine;
