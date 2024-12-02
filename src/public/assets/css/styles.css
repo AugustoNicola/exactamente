@@ -1036,6 +1036,11 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.text-exAmarillo {
+  --tw-text-opacity: 1;
+  color: rgb(239 213 14 / var(--tw-text-opacity));
+}
+
 .text-exCeleste {
   --tw-text-opacity: 1;
   color: rgb(0 130 150 / var(--tw-text-opacity));
@@ -1054,6 +1059,21 @@ video {
 .text-exGrisOscuro {
   --tw-text-opacity: 1;
   color: rgb(171 171 171 / var(--tw-text-opacity));
+}
+
+.text-exIndigo {
+  --tw-text-opacity: 1;
+  color: rgb(67 115 227 / var(--tw-text-opacity));
+}
+
+.text-exNaranja {
+  --tw-text-opacity: 1;
+  color: rgb(255 139 68 / var(--tw-text-opacity));
+}
+
+.text-exRojo {
+  --tw-text-opacity: 1;
+  color: rgb(255 56 56 / var(--tw-text-opacity));
 }
 
 .text-exVerde {

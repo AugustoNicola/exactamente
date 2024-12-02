@@ -3,7 +3,7 @@ export default () => ({
 	input: "#x{G} grafo pesado, #x{v} vértice",
 	output: "#x{D} vector de distancias",
 	linkExplicacion: "/layouts/conceptos/dijkstra.html",
-	cantidadCasos: 3,
+	cantidadCasos: 1,
     lineas: [
 		"inicializar arreglo ~Gris{distancia} en ~Violeta{Inf}",
 		"~Gris{distancia}[~Gris{v}] = ~Violeta{0}",

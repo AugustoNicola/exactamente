@@ -11,7 +11,7 @@ function calcularVelocidadMs(velocidadBase, multiplicador) {
 function renderSintaxis(texto) {
     let textoConSaltos = texto.replace(/\n/g, '<br />');
     // RegEx para renderizar colores de acuerdo al formato COLOR{texto}
-    const regex = /([~#]+)([A-Za-z]*)\{([^\}]+)\}/g;
+    const regex = /(?=(?:[~#]+|[A-Za-z]+))([~#]*)([A-Za-z]*)\{([^\}]+)\}/g;
     let textoRenderizado = textoConSaltos.replace(regex, (match, simbolos, color, texto) => {
         let clases = "";
         if(simbolos.includes("~")) clases += "font-bold ";
@@ -100,7 +100,7 @@ function renderCodigo(objetoCodigo) {
 
 var simulacion = null;
 var codigo = null;
-var velocidadBaseMs = 1000;
+var velocidadBaseMs = 600;
 var intervalID = null; // acá guardamos el handle de setInterval
 
 

@@ -10,6 +10,21 @@ function svgPos(dimension, porcentaje) {
 
 function estilosNodo(v) {
     switch (v.estilo) {
+        case "rojo":
+            return {
+                "color-borde": "#e02e1b",
+                "color-interno": "#eb6c5e"
+            }
+        case "naranja":
+            return {
+                "color-borde": "#e0561b",
+                "color-interno": "#eb965e"
+            }
+        case "amarillo":
+            return {
+                "color-borde": "#e0a21b",
+                "color-interno": "#ebc15e"
+            }
         case "verde":
             return {
                 "color-borde": "#67cbb0",
@@ -19,6 +34,16 @@ function estilosNodo(v) {
             return {
                 "color-borde": "#008296",
                 "color-interno": "#78cfdc"
+            }
+        case "indigo":
+            return {
+                "color-borde": "#004e96",
+                "color-interno": "#7894dc"
+            }
+        case "violeta":
+            return {
+                "color-borde": "#511281",
+                "color-interno": "#ac8dc8"
             }
         case "gris":
         default:
@@ -31,6 +56,21 @@ function estilosNodo(v) {
 
 function estilosArista(e) {
     switch (e.estilo) {
+        case "rojo":
+            return {
+                "stroke": "#911e11",
+                "stroke-width": 15
+            }
+        case "naranja":
+            return {
+                "stroke": "#a34015",
+                "stroke-width": 15
+            }
+        case "amarillo":
+            return {
+                "stroke": "#b8861a",
+                "stroke-width": 15
+            }
         case "verde":
             return {
                 "stroke": "#387467",
@@ -38,7 +78,17 @@ function estilosArista(e) {
             }
         case "celeste":
             return {
-                "stroke": "#008296",
+                "stroke": "#046878",
+                "stroke-width": 15
+            }
+        case "indigo":
+            return {
+                "stroke": "#063159",
+                "stroke-width": 15
+            }
+        case "violeta":
+            return {
+                "stroke": "#35025c",
                 "stroke-width": 15
             }
         case "gris":
