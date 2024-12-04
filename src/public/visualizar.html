@@ -23,7 +23,8 @@
       
       <!-- Botonera -->
       <div id="btn-caso" class="flex-initial basis-2/12 mb-6 flex flex-row flex-nowrap justify-center items-center gap-2">
-        <div x-data="{ open: false, options: $store.simulacion.getCasos, selected: $store.simulacion.casoActual, color: 'exVerde', name: 'caso' }" hx-get="/components/selector_dropdown.html" hx-trigger="load" hx-target="this" class="inline-block">
+        <!-- Falta el hx-get="/components/selector_dropdown.html", lo hacemos por JS. -->
+        <div x-data="{ open: false, get options() { return $store.simulacion.casos}, selected: $store.simulacion.casoActual, color: 'exVerde', name: 'caso' }"  hx-trigger="load" hx-target="this" class="inline-block" hx-after-settle="reinit(this)" id="selector-casos">
         </div>
         <button id="btn-reiniciar" type="button" class="bg-exCeleste px-4 py-1 rounded-lg hover:brightness-75">
           <img class="w-10 h-10" src="/assets/images/flecha_doble_izq.png" alt="Volver al principio">

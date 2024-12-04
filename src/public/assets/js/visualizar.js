@@ -117,25 +117,24 @@ document.addEventListener('alpine:init', () => {
         reproduciendo: false,                 // booleano que controla la reproducción automática
         velocidad: '1.0x',                    // texto seleccionado en el selector de velocidad
         casoActual: 'Caso 1',                 // texto seleccionado en el selector de casos
-        getCasos() {                          // getter para las opciones de caso numeradas desde 1
-            return Array.from({ length: codigo.cantidadCasos }, (_, index) => `Caso ${index + 1}`)
+        casos: ['Caso 1'],
+        actualizarCasos(cod) {
+            this.casoActual = 'Caso 1'
+            this.casos = Array.from({ length: cod != null ? codigo.cantidadCasos : 1 }, (_, index) => `Caso ${index + 1}`)
         }
     });
-    
-    // Cargamos un código y simulación dummys para evitar errores de inicialización
-    //renderCodigo(codigo);
-    //renderEstado(simulacion[Alpine.store('simulacion').rip]);
     
     // Cargamos codigo del query string
     const queryParams = new URLSearchParams(window.location.search);
     const nombreCodigo = queryParams.get('codigo');
     Alpine.store('simulacion').nombreCodigo = nombreCodigo;
-    Alpine.store('simulacion').casoActual = "Caso 1"; // por defecto cargamos el primer caso
     
     import(`./codigos/${nombreCodigo}.js`)
         .then((modulo) => {
             codigo = modulo.default();
-            renderCodigo(codigo);
+            Alpine.store('simulacion').actualizarCasos(codigo);
+            // Cargamos dinámicamente el componente
+            htmx.ajax('GET', '/components/selector_dropdown.html', { target: '#selector-casos' });
         });
     
     import(`./simulaciones/${nombreCodigo}/${nombreCodigo}${1}.js`)
