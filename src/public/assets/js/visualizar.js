@@ -132,6 +132,7 @@ document.addEventListener('alpine:init', () => {
     import(`./codigos/${nombreCodigo}.js`)
         .then((modulo) => {
             codigo = modulo.default();
+            renderCodigo(codigo);
             Alpine.store('simulacion').actualizarCasos(codigo);
             // Cargamos dinámicamente el componente
             htmx.ajax('GET', '/components/selector_dropdown.html', { target: '#selector-casos' });

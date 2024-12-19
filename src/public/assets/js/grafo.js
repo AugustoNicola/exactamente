@@ -83,7 +83,7 @@ function estilosArista(e) {
             }
         case "indigo":
             return {
-                "stroke": "#063159",
+                "stroke": "#0e599e",
                 "stroke-width": 15
             }
         case "violeta":
@@ -191,35 +191,54 @@ export function renderGrafo(nodos, aristas) {
             .attr("fill", ([, nodo]) => estilosNodo(nodo)["color-interno"])
     );
     
-    // IDs de los nodos
-    svg.append("g")
-        .selectAll("text")
-        .data(Object.entries(nodos), ([id, nodo]) => id)
-        .join(
-            enter => enter.append("text")
-                .attr("x", ([, nodo]) => svgPos(width, nodo.x))
-                .attr("y", ([, nodo]) => svgPos(height, nodo.y) - 8)
-                .text(([id, ]) => id)
-                .attr("text-anchor", "middle")
-                .attr("font-size", "32px")
-                .attr("font-weight", "bold")
-                .attr("font-family", "Rubik, serif")
-                .attr("fill", "#000000")
-        );
-    
-    // Labels de los nodos
-    svg.append("g")
-        .selectAll("text")
-        .data(Object.entries(nodos), ([id, nodo]) => id)
-        .join(
-            enter => enter.append("text")
-                .attr("x", ([, nodo]) => svgPos(width, nodo.x))
-                .attr("y", ([, nodo]) => svgPos(height, nodo.y) + 30)
-                .text(([, nodo]) => nodo.label)
-                .attr("text-anchor", "middle")
-                .attr("font-size", "24px")
-                .attr("font-weight", "bold")
-                .attr("font-family", "Rubik, serif")
-                .attr("fill", "#000000")
-        );
+    if ( Object.keys(nodos).length > 0 && nodos[0].label != null) {
+        
+        // IDs de los nodos (versión con label)
+        svg.append("g")
+            .selectAll("text")
+            .data(Object.entries(nodos), ([id, nodo]) => id)
+            .join(
+                enter => enter.append("text")
+                    .attr("x", ([, nodo]) => svgPos(width, nodo.x))
+                    .attr("y", ([, nodo]) => svgPos(height, nodo.y) - 8)
+                    .text(([id, ]) => id)
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "32px")
+                    .attr("font-weight", "bold")
+                    .attr("font-family", "Rubik, serif")
+                    .attr("fill", "#000000")
+            );
+        
+        // Labels de los nodos
+        svg.append("g")
+            .selectAll("text")
+            .data(Object.entries(nodos), ([id, nodo]) => id)
+            .join(
+                enter => enter.append("text")
+                    .attr("x", ([, nodo]) => svgPos(width, nodo.x))
+                    .attr("y", ([, nodo]) => svgPos(height, nodo.y) + 30)
+                    .text(([, nodo]) => nodo.label)
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "24px")
+                    .attr("font-weight", "bold")
+                    .attr("font-family", "Rubik, serif")
+                    .attr("fill", "#000000")
+            );
+    } else {
+        // IDs de los nodos (versión sin label)
+        svg.append("g")
+            .selectAll("text")
+            .data(Object.entries(nodos), ([id, nodo]) => id)
+            .join(
+                enter => enter.append("text")
+                    .attr("x", ([, nodo]) => svgPos(width, nodo.x))
+                    .attr("y", ([, nodo]) => svgPos(height, nodo.y + 2))
+                    .text(([id, ]) => id)
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "40px")
+                    .attr("font-weight", "bold")
+                    .attr("font-family", "Rubik, serif")
+                    .attr("fill", "#000000")
+            );
+    }
 }

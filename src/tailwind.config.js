@@ -14,6 +14,11 @@ module.exports = {
     'text-exVioleta',
     'text-exGris',
     'text-exGrisOscuro',
+    'text-exVar',
+    'text-exCon',
+    'text-exValor',
+    'text-exKey',
+    'text-exStruct',
     'hidden'
   ],
   theme: {
@@ -32,7 +37,13 @@ module.exports = {
         'exVerdeOscuro': "#387467",
         'exFondoOscuro': "#2c554a",
         'exGrisOscuro': "#ababab",
-        'exComentario': "#6b6b6b"
+        'exComentario': "#6b6b6b",
+        'exVar': '#67cbb0',
+        'exCon': '#88d9f2',
+        'exKey': '#ffffff',
+        'exValor': '#d2879b',
+        'exStruct': '#f9bc41'
+        
       },
       fontFamily: {
         exTitulos: ['Raleway', 'serif'],
