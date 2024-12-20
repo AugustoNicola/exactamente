@@ -1,0 +1,134 @@
+[
+	{
+		"incremental": false,
+		"linea": 0,
+		"contexto": "¡Comenzá a ~Celeste{ejecutar} para ver ~GrisOscuro{comentarios}!",
+		"variables": {
+			"r": "0"
+		},
+		"variablesAlteradas": {
+		},
+		"visualizacion": "grafo",
+		"render": {
+			"nodos": {
+				"0": {"id": "0", "label": null, "estilo": "gris", "x": 20.0, "y": 50.0},
+				
+				"1": {"id": "1", "label": null, "estilo": "gris", "x": 50.0, "y": 35.0},
+				"2": {"id": "2", "label": null, "estilo": "gris", "x": 50.0, "y": 65.0},
+				
+				"3": {"id": "3", "label": null, "estilo": "gris", "x": 80.0, "y": 35.0},
+				"4": {"id": "4", "label": null, "estilo": "gris", "x": 80.0, "y": 65.0}
+			},
+			"aristas": [
+				{"fuente": 0, "destino": 1, "label": null, "estilo": "gris", "dirigido": false},
+				{"fuente": 0, "destino": 2, "label": null, "estilo": "gris", "dirigido": false},
+				{"fuente": 1, "destino": 3, "label": null, "estilo": "gris", "dirigido": false},
+				{"fuente": 2, "destino": 4, "label": null, "estilo": "gris", "dirigido": false},
+				{"fuente": 3, "destino": 4, "label": null, "estilo": "gris", "dirigido": false},
+				{"fuente": 1, "destino": 2, "label": null, "estilo": "gris", "dirigido": false}
+			]
+		}
+	},
+	{
+		"linea": 1,
+		"contexto": "Inicializamos una Struct{cola} con nombre #Var{Q}.\n Esta cola dictará el orden en el que se recorreran los nodos del grafo.",
+		"variablesAlteradas": {
+			"Q": "[]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 2,
+		"contexto": "Inicializamos un Struct{array de tamaño fijo} con nombre #~Violeta{explorado} con #Valor{5} elementos (uno por cada nodo del grafo).\nEste arreglo indica con un booleano qué nodos ya aparecieron en algún momento de la búsqueda hasta el momento.\nTodos las posiciones de #~Violeta{explorado} se inicializan en #Valor{False}.",
+		"variablesAlteradas": {
+			"explorado": "[False, False, False, False, False]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 3,
+		"contexto": "Inicializamos un Struct{array de tamaño fijo} con nombre #Verde{padre} con #Valor{5} elementos (uno por cada nodo del grafo).\nEste arreglo indica cuál fue el nodo que encontró por primera vez a cada nodo.\nTodos las posiciones de #Verde{padre} se inicializan en #Valor{?} Valor{(indefinido)} hasta que el nodo se encuentre en la búsqueda.",
+		"variablesAlteradas": {
+			"padre": "[?, ?, ?, ?, ?]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 5,
+		"contexto": "Como vamos a iniciar la búsqueda en el Verde{nodo }#Verde{0}, lo marcamos como ya explorado.\nPor ello, asignamos la posición #Verde{0} de ~#Violeta{explorado} en #Valor{True}.",
+		"variablesAlteradas": {
+			"explorado": "[True, False, False, False, False]"
+		},
+		"nodosCambiados": {
+			"0": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 6,
+		"contexto": "No es necesario, pero es común marcar al #Verde{padre} del Verde{nodo raíz} como sí mismo.\nPor ello, marcamos al #Verde{padre} del #Verde{0} como el #Verde{0}.",
+		"variablesAlteradas": {
+			"padre": "[0, ?, ?, ?, ?]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 7,
+		"contexto": "Además, agregamos #Verde{0} como único elemento de #Verde{Q}, para dejar listo el ciclo.",
+		"variablesAlteradas": {
+			"Q": "[0]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 8,
+		"contexto": "Entramos en el ciclo principal del programa, el cual no va a terminar hasta haber recorrido toda la componente conexa donde arrancamos del grafo.\nComo #Verde{Q} no está vacío, entramos en el cuerpo del ciclo, y en esta iteración exploraremos el ~Naranja{primer elemento de la cola}.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 9,
+		"contexto": "Tomamos como ~#Naranja{v} al ~Naranja{primer elemento de la cola}, es decir ~#Naranja{0}.\nAdemás, eliminamos este valor de #Verde{Q}.",
+		"variablesAlteradas": {
+			"Q": "[]",
+			"v": "0"
+		},
+		"nodosCambiados": {
+			"0": {"estilo": "naranja"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Comenzamos ahora a recorrer los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{0}, en cualquier orden.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{2}.",
+		"variablesAlteradas": {
+			"w": "2"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 0, "destino": 2, "estilo": "indigo"}
+		]
+	}
+]

@@ -138,7 +138,7 @@ document.addEventListener('alpine:init', () => {
             htmx.ajax('GET', '/components/selector_dropdown.html', { target: '#selector-casos' });
         });
     
-    import(`./simulaciones/${nombreCodigo}/${nombreCodigo}${1}.js`)
+    import(`./simulaciones/${nombreCodigo}/${nombreCodigo}${1}.min.js`)
         .then((modulo) => {
             simulacion = modulo.default().estados;
             Alpine.store('simulacion').ultimoEstado = simulacion.length - 1;
