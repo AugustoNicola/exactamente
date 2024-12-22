@@ -152,7 +152,7 @@ document.addEventListener('alpine:init', () => {
         Alpine.store('simulacion').casoActual = e.detail;
         let nombre = Alpine.store('simulacion').nombreCodigo;
         let caso = parseInt(e.detail.match(/\d+/)[0]);
-        import(`./simulaciones/${nombre}/${nombre}${caso}.js`)
+        import(`./simulaciones/${nombre}/${nombre}${caso}.min.js`)
             .then((modulo) => {
                 simulacion = modulo.default().estados;
                 Alpine.store('simulacion').rip = 0;

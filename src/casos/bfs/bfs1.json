@@ -130,5 +130,480 @@
 		"aristasCambiadas": [
 			{"fuente": 0, "destino": 2, "estilo": "indigo"}
 		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{2} todavía no fue ~Violeta{explorado}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 12,
+		"contexto": "Al haber encontrado un nodo que no fue explorado antes, lo marcamos como ~Violeta{explorado}.",
+		"variablesAlteradas": {
+			"explorado": "[True, False, True, False, False]"
+		},
+		"nodosCambiados": {
+			"2": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 13,
+		"contexto": "Además, marcamos al ~Naranja{Nodo} ~#Naranja{0} como aquel que descubrió al ~Indigo{Nodo} ~#Indigo{2}.\nPara ello, marcamos al ~#Naranja{0} como #Verde{padre} del ~#Indigo{2}.",
+		"variablesAlteradas": {
+			"padre": "[0, ?, 0, ?, ?]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 14,
+		"contexto": "Por último, como acabamos de Violeta{explorar} al ~Indigo{Nodo} ~#Indigo{2}, lo introducimos en la cola #Verde{Q}.\nDe esta manera, eventualmente serán recorridos sus vecinos.",
+		"variablesAlteradas": {
+			"Q": "[2]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Seguimos iterando sobre los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{0}.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{1}.",
+		"variablesAlteradas": {
+			"w": "1"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 0, "destino": 1, "estilo": "indigo"},
+			{"fuente": 0, "destino": 2, "estilo": "gris"}
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{1} todavía no fue ~Violeta{explorado}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 12,
+		"contexto": "Al haber encontrado un nodo que no fue explorado antes, lo marcamos como ~#Violeta{explorado}.",
+		"variablesAlteradas": {
+			"explorado": "[True, True, True, False, False]"
+		},
+		"nodosCambiados": {
+			"1": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 13,
+		"contexto": "Además, marcamos al ~Naranja{Nodo} ~#Naranja{0} como aquel que descubrió al ~Indigo{Nodo} ~#Indigo{1}.\nPara ello, marcamos al ~#Naranja{0} como #Verde{padre} del ~#Indigo{1}.",
+		"variablesAlteradas": {
+			"padre": "[0, 0, 0, ?, ?]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 14,
+		"contexto": "Por último, como acabamos de Violeta{explorar} al ~Indigo{Nodo} ~#Indigo{1}, lo introducimos en la cola #Verde{Q}.\nDe esta manera, eventualmente serán recorridos sus vecinos.",
+		"variablesAlteradas": {
+			"Q": "[2, 1]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como #Verde{Q} no está vacío, entramos en el cuerpo del ciclo, y en esta iteración exploraremos el ~Naranja{primer elemento de la cola}.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+			"0": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+			{"fuente": 0, "destino": 1, "estilo": "gris"}
+		]
+	},
+	{
+		"linea": 9,
+		"contexto": "Tomamos como ~#Naranja{v} al ~Naranja{primer elemento de la cola}, es decir ~#Naranja{2}.\nAdemás, eliminamos este valor de #Verde{Q}.",
+		"variablesAlteradas": {
+			"Q": "[1]",
+			"v": "2"
+		},
+		"nodosCambiados": {
+			"2": {"estilo": "naranja"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Comenzamos ahora a recorrer los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{2}, en cualquier orden.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{1}.",
+		"variablesAlteradas": {
+			"w": "1"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 1, "destino": 2, "estilo": "indigo"}
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{1} ya fue ~Violeta{explorado}, salteamos el condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Seguimos iterando sobre los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{2}.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{4}.",
+		"variablesAlteradas": {
+			"w": 4
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 1, "destino": 2, "estilo": "gris"},
+			{"fuente": 2, "destino": 4, "estilo": "indigo"}
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{4} todavía no fue ~Violeta{explorado}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 12,
+		"contexto": "Al haber encontrado un nodo que no fue explorado antes, lo marcamos como ~Violeta{explorado}.",
+		"variablesAlteradas": {
+			"explorado": "[True, True, True, False, True]"
+		},
+		"nodosCambiados": {
+			"4": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 13,
+		"contexto": "Además, marcamos al ~Naranja{Nodo} ~#Naranja{2} como aquel que descubrió al ~Indigo{Nodo} ~#Indigo{4}.\nPara ello, marcamos al ~#Naranja{2} como #Verde{padre} del ~#Indigo{4}.",
+		"variablesAlteradas": {
+			"padre": "[0, 0, 0, ?, 2]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 14,
+		"contexto": "Por último, como acabamos de Violeta{explorar} al ~Indigo{Nodo} ~#Indigo{4}, lo introducimos en la cola #Verde{Q}.\nDe esta manera, eventualmente serán recorridos sus vecinos.",
+		"variablesAlteradas": {
+			"Q": "[1, 4]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como #Verde{Q} no está vacío, entramos en el cuerpo del ciclo, y en esta iteración exploraremos el ~Naranja{primer elemento de la cola}.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+			"2": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+			{"fuente": 2, "destino": 4, "estilo": "gris"}
+		]
+	},
+	{
+		"linea": 9,
+		"contexto": "Tomamos como ~#Naranja{v} al ~Naranja{primer elemento de la cola}, es decir ~#Naranja{1}.\nAdemás, eliminamos este valor de #Verde{Q}.",
+		"variablesAlteradas": {
+			"Q": "[4]",
+			"v": "1"
+		},
+		"nodosCambiados": {
+			"1": {"estilo": "naranja"}
+			
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Comenzamos ahora a recorrer los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{1}, en cualquier orden.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{0}.",
+		"variablesAlteradas": {
+			"w": "0"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 0, "destino": 1, "estilo": "indigo"}
+			
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{0} ya fue ~Violeta{explorado}, salteamos el condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Seguimos iterando sobre los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{1}.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{3}.",
+		"variablesAlteradas": {
+			"w": "3"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 1, "destino": 3, "estilo": "indigo"},
+			{"fuente": 0, "destino": 1, "estilo": "gris"}
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{3} todavía no fue ~Violeta{explorado}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 12,
+		"contexto": "Al haber encontrado un nodo que no fue explorado antes, lo marcamos como ~Violeta{explorado}.",
+		"variablesAlteradas": {
+			"explorado": "[True, True, True, True, True]"
+		},
+		"nodosCambiados": {
+			"3": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 13,
+		"contexto": "Además, marcamos al ~Naranja{Nodo} ~#Naranja{1} como aquel que descubrió al ~Indigo{Nodo} ~#Indigo{3}.\nPara ello, marcamos al ~#Naranja{1} como #Verde{padre} del ~#Indigo{3}.",
+		"variablesAlteradas": {
+			"padre": "[0, 0, 0, 1, 2]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 14,
+		"contexto": "Por último, como acabamos de Violeta{explorar} al ~Indigo{Nodo} ~#Indigo{3}, lo introducimos en la cola #Verde{Q}.\nDe esta manera, eventualmente serán recorridos sus vecinos.",
+		"variablesAlteradas": {
+			"Q": "[4, 3]"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como #Verde{Q} no está vacío, entramos en el cuerpo del ciclo, y en esta iteración exploraremos el ~Naranja{primer elemento de la cola}.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+			"1": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+			{"fuente": 1, "destino": 3, "estilo": "gris"}
+		]
+	},
+	{
+		"linea": 9,
+		"contexto": "Tomamos como ~#Naranja{v} al ~Naranja{primer elemento de la cola}, es decir ~#Naranja{4}.\nAdemás, eliminamos este valor de #Verde{Q}.",
+		"variablesAlteradas": {
+			"v": "4",
+			"Q": "[3]"
+		},
+		"nodosCambiados": {
+			"4": {"estilo": "naranja"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Comenzamos ahora a recorrer los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{4}, en cualquier orden.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{2}.",
+		"variablesAlteradas": {
+			"w": "2"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 2, "destino": 4, "estilo": "indigo"}
+			
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{4} ya fue ~Violeta{explorado}, salteamos el condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Seguimos iterando sobre los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{4}.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{3}.",
+		"variablesAlteradas": {
+			"w": "3"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 2, "destino": 4, "estilo": "gris"},
+			{"fuente": 3, "destino": 4, "estilo": "indigo"}
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{3} ya fue ~Violeta{explorado}, salteamos el condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como #Verde{Q} no está vacío, entramos en el cuerpo del ciclo, y en esta iteración exploraremos el ~Naranja{primer elemento de la cola}.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+			"4": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+			{"fuente": 3, "destino": 4, "estilo": "gris"}
+		]
+	},
+	{
+		"linea": 9,
+		"contexto": "Tomamos como ~#Naranja{v} al ~Naranja{primer elemento de la cola}, es decir ~#Naranja{3}.\nAdemás, eliminamos este valor de #Verde{Q}.",
+		"variablesAlteradas": {
+			"Q": "[]",
+			"v": "3"
+		},
+		"nodosCambiados": {
+			"3": {"estilo": "naranja"}
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Comenzamos ahora a recorrer los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{3}, en cualquier orden.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{1}.",
+		"variablesAlteradas": {
+			"w": "1"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 1, "destino": 3, "estilo": "indigo"}
+			
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{1} ya fue ~Violeta{explorado}, salteamos el condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 10,
+		"contexto": "Seguimos iterando sobre los ~Indigo{vecinos} del ~Naranja{Nodo} ~#Naranja{3}.\nEn esta iteración, tomamos como ~#Indigo{w} al ~Indigo{Nodo} ~#Indigo{4}.",
+		"variablesAlteradas": {
+			"w": "3"
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+			{"fuente": 1, "destino": 3, "estilo": "gris"},
+			{"fuente": 3, "destino": 4, "estilo": "indigo"}
+		]
+	},
+	{
+		"linea": 11,
+		"contexto": "Como el ~Indigo{Nodo} ~#Indigo{4} ya fue ~Violeta{explorado}, salteamos el condicional.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como #Verde{Q} está vacío, no entramos en el cuerpo del ciclo.\nHemos recorrido toda la componente conexa del Verde{nodo} #Verde{0}.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+			"3": {"estilo": "violeta"}
+		},
+		"aristasCambiadas": [
+			{"fuente": 3, "destino": 4, "estilo": "gris"}
+		]
+	},
+	{
+		"linea": 15,
+		"contexto": "Habiendo recorrido todo lo accesible desde el Verde{nodo} #Verde{0}, podemos devolver el arreglo #Verde{padre}.\nEn este grafo hay una única componente conexa, así que no quedaron Valor{valores indefinidos} en #Verde{padre}.",
+		"variablesAlteradas": {
+		},
+		"nodosCambiados": {
+		},
+		"aristasCambiadas": [
+		]
 	}
 ]

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "minificar": "node minificarTodo.js"
+    "minificar": "node minificarTodo.js",
+    "css": "npx tailwindcss -i .\\tailwind\\css\\styles.css -o .\\public\\assets\\css\\styles.css --watch"
   },
   "repository": {
     "type": "git",
