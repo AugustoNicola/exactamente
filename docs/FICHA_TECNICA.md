@@ -9,14 +9,14 @@
     │	├── assets
     │	│	├── css    # Archivos CSS compilados por TailwindCSS
     │	│	├── images # Assets visuales
-    │	│	├── js     # Toda la lógica de aplicación está acá
-    │	│	│	├── codigos       # Pseudocódigos
-    │	│	│	├── data          # Data estática (e.g. qué conceptos listar)
-    │	│	│	├── simulaciones  # Versiones minificadas de los archivos en src/casos
-    │	│	│	├── grafo.js      # Visualización de grafos
-    │	│	│	├── htmx.js       # Biblioteca HTMX
-    │	│	│	├── main.js       # Lógica de la página principal
-    │	│	│	└── visualizar.js # Lógica general de visualización
+    │	│	└── js     # Toda la lógica de aplicación está acá
+    │	│	 	├── codigos       # Pseudocódigos
+    │	│	 	├── data          # Data estática (e.g. qué conceptos listar)
+    │	│	 	├── simulaciones  # Versiones minificadas de los archivos en src/casos
+    │	│	 	├── grafo.js      # Visualización de grafos
+    │	│	 	├── htmx.js       # Biblioteca HTMX
+    │	│	 	├── main.js       # Lógica de la página principal
+    │	│	 	└── visualizar.js # Lógica general de visualización
     │	├── components      # Componentes reutilizables (e.g. header)
     │	├── layouts         # Vistas de la página
     │	│	└── conceptos      # Acá están todas las explicaciones de conceptos
