@@ -82,5 +82,6 @@ Muchas partes del visualizador usan el Formato Colorinche para poder escribir en
 `<simbolos>` es cualquier string (incluso en vacío) compuesto por los caracteres:
   * `~`: pone el texto en negrita
   * `#`: pone el texto en fuente monoespaciada (fuente para código)
+
 Entonces, si se escribe `#~Naranja{hola}`, se renderiza un "hola" naranja en negrita y en fuente monoespaciada.
 ``
