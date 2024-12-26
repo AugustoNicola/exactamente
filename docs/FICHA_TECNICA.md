@@ -6,24 +6,24 @@
 └── src
     ├── casos    # Casos de visualización
     ├── public   # Acá empieza el sitio web estático
-    │	├── assets
-    │	│	├── css    # Archivos CSS compilados por TailwindCSS
-    │	│	├── images # Assets visuales
-    │	│	└── js     # Toda la lógica de aplicación está acá
-    │	│	 	├── codigos       # Pseudocódigos
-    │	│	 	├── data          # Data estática (e.g. qué conceptos listar)
-    │	│	 	├── simulaciones  # Versiones minificadas de los archivos en src/casos
-    │	│	 	├── grafo.js      # Visualización de grafos
-    │	│	 	├── htmx.js       # Biblioteca HTMX
-    │	│	 	├── main.js       # Lógica de la página principal
-    │	│	 	└── visualizar.js # Lógica general de visualización
-    │	├── components      # Componentes reutilizables (e.g. header)
-    │	├── layouts         # Vistas de la página
-    │	│	└── conceptos      # Acá están todas las explicaciones de conceptos
-    │	├── templates       # Templates usados a lo largo de la página
-    │	├── conceptos.html  # Vista de conceptos 
-    │	├── index.html      # Vista inicial
-    │	└── visualizar.html # Vista de visualización
+    │    ├── assets
+    │    │    ├── css    # Archivos CSS compilados por TailwindCSS
+    │    │    ├── images # Assets visuales
+    │    │    └── js     # Toda la lógica de aplicación está acá
+    │    │        ├── codigos       # Pseudocódigos
+    │    │        ├── data          # Data estática (e.g. qué conceptos listar)
+    │    │        ├── simulaciones  # Versiones minificadas de los archivos en src/casos
+    │    │        ├── grafo.js      # Visualización de grafos
+    │    │        ├── htmx.js       # Biblioteca HTMX
+    │    │        ├── main.js       # Lógica de la página principal
+    │    │        └── visualizar.js # Lógica general de visualización
+    │    ├── components      # Componentes reutilizables (e.g. header)
+    │    ├── layouts         # Vistas de la página
+    │    │    └── conceptos      # Acá están todas las explicaciones de conceptos
+    │    ├── templates       # Templates usados a lo largo de la página
+    │    ├── conceptos.html  # Vista de conceptos 
+    │    ├── index.html      # Vista inicial
+    │    └── visualizar.html # Vista de visualización
     └── tailwind # Estilos CSS personalizados 
 ```
 Los directorios y archivos más importantes para entender cómo funciona la aplicación son:
