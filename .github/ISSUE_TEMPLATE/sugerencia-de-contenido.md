@@ -3,7 +3,7 @@ name: Sugerencia de contenido
 about: "¡Agregá tu idea sobre qué contenidos pueden aparecer en el proyecto! No pongas
   acá sugerencias de funcionalidad (hay otro template)"
 title: ''
-labels: contenido
+labels: contenido, sugerencia
 assignees: ''
 
 ---
