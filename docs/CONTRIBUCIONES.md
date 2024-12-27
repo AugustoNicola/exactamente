@@ -10,7 +10,7 @@ Si te interesa aportar con una nueva visualización, revisá la [Ficha Técnica]
 Más allá de eso, siempre podés proponer nuevas funcionalidades que no tengan nada que ver con lo ya hecho.
 
 ## Subida de Issues
-Cualquier idea, notificación de error o fallo, y sugerencia de contenido a agregar podés cargarla como un issue [acá](https://github.com/AugustoNicola/exactamente/issues/new). ¡Seleccioná la etiqueta que corresponda!
+Cualquier idea, notificación de error o fallo, y sugerencia de contenido a agregar podés cargarla como un issue [acá](https://github.com/AugustoNicola/exactamente/issues/new/choose). ¡Seleccioná la etiqueta que corresponda!
 
 ## Pull Requests
 Si te animás a escribir algo de código para el proyecto, no dudes en cargar un [Pull Request](https://github.com/AugustoNicola/exactamente/pulls). No es necesario que subas nada perfecto; cualquier idea de implementación u mejora parcial es más que suficiente. Lo mejor sería que intentes mantener un estilo consistente a lo ya escrito, pero cualquier cosa puede charlarse en la discusión del PR.

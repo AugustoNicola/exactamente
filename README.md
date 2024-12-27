@@ -9,7 +9,7 @@
 <br>
 
 # Contribuciones
-Por el momento *Exactamente!* está en una versión muy temprana de desarrollo, y **necesita de aportes para poder avanzar** a un estado que el estudiantado pueda usar cómodamente. Por ello, si te interesa el proyecto y sentís que puede ser útil para la cursada de muchos estudiantes de la carrera, ¡te pido que consideres ayudar como puedas! En la sección de [Contribuciones](./docs//CONTRIBUCIONES.md) podés ver de qué manera aportar.
+Por el momento *Exactamente!* está en una versión muy temprana de desarrollo, y **necesita de aportes para poder avanzar** a un estado que el estudiantado pueda usar cómodamente. Por ello, si te interesa el proyecto y sentís que puede ser útil para la cursada de muchos estudiantes de la carrera, ¡te pido que consideres ayudar como puedas! En la sección de [Contribuciones](./docs//CONTRIBUCIONES.md) podés ver de qué manera aportar. Además, podés consultar la [Ficha Técnica](./docs//FICHA_TECNICA.md) para ver información de cómo está estructurado el repositorio.
 
 Cualquier aporte de código, notificación de errores o fallas, sugerencias o cualquier otro tipo de contribución será enormemente agradecida.
 

@@ -4,27 +4,27 @@
 ├── assets # Diseños gráficos, mock-ups, etc.
 ├── docs   # Documentación
 └── src
-	├── casos    # Casos de visualización
-	├── public   # Acá empieza el sitio web estático
-	│	├── assets
-	│	│	├── css    # Archivos CSS compilados por TailwindCSS
-	│	│	├── images # Assets visuales
-	│	│	├── js     # Toda la lógica de aplicación está acá
-	│	│	│	├── codigos       # Pseudocódigos
-	│	│	│	├── data          # Data estática (e.g. qué conceptos listar)
-	│	│	│	├── simulaciones  # Versiones minificadas de los archivos en src/casos
-	│	│	│	├── grafo.js      # Visualización de grafos
-	│	│	│	├── htmx.js       # Biblioteca HTMX
-	│	│	│	├── main.js       # Lógica de la página principal
-	│	│	│	└── visualizar.js # Lógica general de visualización
-	│	├── components      # Componentes reutilizables (e.g. header)
-	│	├── layouts         # Vistas de la página
-	│	│	└── conceptos      # Acá están todas las explicaciones de conceptos
-	│	├── templates       # Templates usados a lo largo de la página
-	│	├── conceptos.html  # Vista de conceptos 
-	│	├── index.html      # Vista inicial
-	│	└── visualizar.html # Vista de visualización
-	└── tailwind # Estilos CSS personalizados 
+    ├── casos    # Casos de visualización
+    ├── public   # Acá empieza el sitio web estático
+    │    ├── assets
+    │    │    ├── css    # Archivos CSS compilados por TailwindCSS
+    │    │    ├── images # Assets visuales
+    │    │    └── js     # Toda la lógica de aplicación está acá
+    │    │        ├── codigos       # Pseudocódigos
+    │    │        ├── data          # Data estática (e.g. qué conceptos listar)
+    │    │        ├── simulaciones  # Versiones minificadas de los archivos en src/casos
+    │    │        ├── grafo.js      # Visualización de grafos
+    │    │        ├── htmx.js       # Biblioteca HTMX
+    │    │        ├── main.js       # Lógica de la página principal
+    │    │        └── visualizar.js # Lógica general de visualización
+    │    ├── components      # Componentes reutilizables (e.g. header)
+    │    ├── layouts         # Vistas de la página
+    │    │    └── conceptos      # Acá están todas las explicaciones de conceptos
+    │    ├── templates       # Templates usados a lo largo de la página
+    │    ├── conceptos.html  # Vista de conceptos 
+    │    ├── index.html      # Vista inicial
+    │    └── visualizar.html # Vista de visualización
+    └── tailwind # Estilos CSS personalizados 
 ```
 Los directorios y archivos más importantes para entender cómo funciona la aplicación son:
 * `src/public/layouts/conceptos`: Acá escribís texto explicativo en formato HTML.
@@ -82,5 +82,6 @@ Muchas partes del visualizador usan el Formato Colorinche para poder escribir en
 `<simbolos>` es cualquier string (incluso en vacío) compuesto por los caracteres:
   * `~`: pone el texto en negrita
   * `#`: pone el texto en fuente monoespaciada (fuente para código)
+
 Entonces, si se escribe `#~Naranja{hola}`, se renderiza un "hola" naranja en negrita y en fuente monoespaciada.
 ``
