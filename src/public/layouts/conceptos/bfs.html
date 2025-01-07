@@ -10,23 +10,136 @@
   <link href="/assets/css/styles.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
   <script src="/assets/js/htmx.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="bg-exClaro">
   <div hx-get="/components/header.html" hx-trigger="load"></div>
   <main class="w-6/12 mx-auto mt-12">
-    <h1 class="font-exTitulos text-black text-xl text-center underline font-bold mb-4">Algoritmo de Breadth-First-Search</h1>
+    <h1 class="font-exTitulos text-black text-xl text-center underline font-bold mb-4">Algoritmo de Breadth-First-Search (BFS)</h1>
     <div class="flex flex-row-flex-nowrap justify-center items-center">
       <a class="px-4 py-3 mb-3  font-exTitulos text-white text-lg text-center font-semibold bg-exCeleste rounded-md hover:brightness-75" href="/visualizar.html?codigo=bfs">Probar Visualizador</a>
     </div>
     
     <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Descripción</h2>
-    <p class="mb-3 font-exTexto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non elit non dui auctor gravida. Proin at metus tincidunt, faucibus tortor non, ullamcorper metus. Integer rutrum justo non nisl vulputate, faucibus venenatis ex pellentesque. Praesent accumsan, orci vitae semper gravida, orci justo luctus massa, ac accumsan sapien urna at elit. Nullam congue turpis at dictum rutrum. Curabitur posuere risus id lectus laoreet pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus quis turpis velit. Suspendisse sit amet enim finibus, iaculis sem id, convallis nunc. In laoreet leo augue, sed consequat sapien volutpat sed.</p>
+    <p class="markdown  mb-3 font-exTexto">El algoritmo de Breadth-First-Search, BFS, o búsqueda por anchura, es uno de los algoritmos más sencillos de recorrido de grafos. Frecuentemente se lo utiliza como "base" para implementar algoritmos más avanzados que requieran recorrer un grafo.</p>
+    <p class="markdown  mb-3 font-exTexto">Dado un grafo \(G = (V,E)\) y un vértice \(r \in V\) (al que denominamos la *fuente*), el algoritmo BFS explora sistemáticamente las aristas de \(G\) de manera que se "descubran" los vértices alcanzables desde \(r\). Este proceso se realiza de tal manera que se computa la distancia desde \(r\) hasta todos los vértices alcanzables (es decir, la menor cantidad de aristas necesarias para llegar de r hacia cada vértice alcanzable).</p>
+    <p class="markdown  mb-3 font-exTexto">Además, la ejecución de BFS sobre \(G\) produce una estructura conocida como el *árbol BFS* de \(G\), el cual brinda información acerca de los vértices alcanzables desde \(r\) y cómo llegar hasta ellos con un camino mínimo.</p>
     
     <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Algoritmo</h2>
-    <p class="mb-3 font-exTexto">Aliquam ut molestie urna. Aliquam in dapibus risus, sit amet dictum turpis. Nullam tempus vestibulum augue sit amet tristique. Phasellus in facilisis augue. Duis nec ullamcorper massa. Nunc condimentum cursus neque, quis maximus neque consectetur in. Nam sodales vitae est mattis eleifend. Etiam enim turpis, congue vitae tincidunt sed, tempus eget justo. Fusce eget vestibulum sapien, sit amet viverra eros.</p>
-    <p class="mb-3 font-exTexto">Etiam congue libero non velit laoreet, sit amet porttitor lorem congue. Duis blandit convallis libero, vitae finibus diam pulvinar id. Sed quis pharetra ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus pulvinar sodales.</p>
-    <img class="mx-auto mb-3  w-10/12" src="/assets/images/thumbnail_bfs.png" alt="Imagen Prueba">
-    <p class="mb-3 font-exTexto">Aliquam ut molestie urna. Aliquam in dapibus risus, sit amet dictum turpis. Nullam tempus vestibulum augue sit amet tristique. Phasellus in facilisis augue. Duis nec ullamcorper massa. Nunc condimentum cursus neque, quis maximus neque consectetur in. Nam sodales vitae est mattis eleifend. Etiam enim turpis, congue vitae tincidunt sed, tempus eget justo. Fusce eget vestibulum sapien.</p>
+    <p class="markdown  mb-3 font-exTexto">El pseudocódigo del Algoritmo de BFS es el siguiente:</p>
+    
+    <div class="bg-exOscuro px-2 py-3 my-3 d-inline-block font-exCodigo text-white">
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">1</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">inicializar</span> <span
+            class="text-exVar ">Q</span><span class="text-exKey ">, una</span> <span
+            class="text-exStruct ">cola</span> <span class="text-exValor ">vacía</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">2</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">inicializar</span> <span
+            class="font-bold text-exVioleta ">explorado</span><span class="text-exKey ">, un</span> <span
+            class="text-exStruct ">arreglo de</span> <span class="text-exCon ">|</span><span
+            class="text-exVar ">V</span><span class="text-exCon ">|</span> <span class="text-exStruct ">elementos con valores</span> <span class="text-exValor ">False</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">3</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">inicializar</span> <span
+            class="text-exVerde ">padre</span><span class="text-exKey ">, un</span> <span
+            class="text-exStruct ">arreglo de</span> <span class="text-exCon ">|</span><span
+            class="text-exVar ">V</span><span class="text-exCon ">|</span> <span class="text-exStruct ">elementos con valores</span> <span class="text-exValor ">indefinidos</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">4</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exGrisOscuro "># marcamos a r como explorado y lo usamos para iniciar la búsqueda</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">5</div>
+        <div class="inline whitespace-pre select-text"><span class="font-bold text-exVioleta ">explorado</span><span
+            class="text-exCon ">[</span><span class="text-exVar ">r</span><span class="text-exCon ">]</span> <span
+            class="text-exCon ">&lt;-</span> <span class="text-exValor ">True</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">6</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exVar ">padre</span><span
+            class="text-exCon ">[</span><span class="text-exVar ">r</span><span class="text-exCon ">]</span> <span
+            class="text-exCon ">&lt;-</span> <span class="text-exVar ">r</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">7</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">agregar</span> <span
+            class="text-exVar ">r</span> <span class="text-exKey ">a</span> <span class="text-exVar ">Q</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">8</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">mientras</span> <span
+            class="text-exVar ">Q</span> <span class="text-exKey ">no esté</span> <span
+            class="text-exValor ">vacío</span><span class="text-exKey ">:</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">9</div>
+        <div class="inline whitespace-pre select-text"><span class="font-bold text-exNaranja ">  v</span> <span
+            class="text-exCon ">&lt;-</span> <span class="font-bold text-exNaranja ">primer elemento de</span> <span
+            class="text-exVar ">Q</span> <span class="text-exKey ">(y eliminarlo de</span> <span
+            class="text-exVar ">Q</span><span class="text-exKey ">)</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">10</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">  para cada</span> <span
+            class="font-bold text-exIndigo ">vecino w</span> <span class="text-exKey ">de</span> <span
+            class="font-bold text-exNaranja ">v</span>:</div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">11</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">    si</span> <span
+            class="font-bold text-exVioleta ">explorado</span><span class="text-exCon ">[</span><span
+            class="font-bold text-exIndigo ">w</span><span class="text-exCon ">]</span> <span
+            class="text-exCon ">==</span> <span class="text-exValor ">False</span><span class="text-exKey ">:</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">12</div>
+        <div class="inline whitespace-pre select-text"><span class="font-bold text-exVioleta ">    explorado</span><span
+            class="text-exCon ">[</span><span class="font-bold text-exIndigo ">w</span><span
+            class="text-exCon ">]</span> <span class="text-exCon ">&lt;-</span> <span
+            class="text-exValor ">True</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">13</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exVar ">    padre</span><span
+            class="text-exCon ">[</span><span class="font-bold text-exIndigo ">w</span><span
+            class="text-exCon ">]</span> <span class="text-exCon ">&lt;-</span> <span
+            class="font-bold text-exNaranja ">v</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">14</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">    agregar</span> <span
+            class="font-bold text-exIndigo ">w</span> <span class="text-exKey ">a</span> <span
+            class="text-exVar ">Q</span></div>
+      </div>
+      <div class="block select-none">
+        <div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">15</div>
+        <div class="inline whitespace-pre select-text"><span class="text-exKey ">devolver</span> <span
+            class="text-exVar ">padre</span></div>
+      </div>
+    </div>
+    
+    <p class="markdown  mb-3 font-exTexto">BFS utiliza algunas estructuras auxiliares para representar el estado de la búsqueda. En primer lugar, en un arreglo `*explorado*` se lleva registro de cuáles vértices fueron explorados (es decir, ya aparecieron en algún momento de la búsqueda) y cuáles no. Además, con otro arreglo se agrega información adicional acerca de a través de qué vértice fue realizado cada descubrimiento (lo que notamos como el *`padre`* de cada vértice). Por último, el orden de recorrido de los vértices se administra con una *cola `Q`*. La naturaleza *FIFO* (_*first-in-first-out*_, es decir que a la hora de desencolar un elemento se elige el que esté en la cola con más antigüedad) es esencial para que el algoritmo realize la búsqueda en anchura y no según otro criterio.</p>
+    <p class="markdown  mb-3 font-exTexto">El algoritmo procede de la siguiente manera. Excepto por \(r\), todos los vértices se marcan como no explorados, y sin padre. La línea 7 inicializa la cola de manera que contenga únicamente a \(r\). El ciclo de las líneas 8-14 itera mientras haya al menos un elemento en la cola. Este ciclo mantiene el invariante: _"en la cola se encuentran todos los vértices marcados como explorados que aún no hayan sido utilizados para explorar sus vecinos"_.</p>
+    <p class="markdown  mb-3 font-exTexto">Cuando este ciclo ejecuta, se desencola al primer elemento de la cola, al cual notamos como el vértice \(v\), y durante esa ejecución se analizaran los vecinos de \(v\) (que llamamos \(w\)) en búsqueda de vértices no explorados. Cada vez que esto ocurre, se marca a \(w\) como explorado, y como ha sido encontrado gracias a \(v\), se lo registra como su padre. Además, es esencial que se encole \(w\) a la cola de exploración, para que eventualmente sea desencolado y toque analizar los vecinos de \(w\).</p>
+    <p class="markdown  mb-3 font-exTexto">Este proceso de exploración se mantiene siempre que haya elementos en la cola, y eventualmente termina, ya que únicamente se encolan vértices cuando son descubiertos por primera vez, por lo que en el peor caso se encolan todos los \(|V|\) vértices. Cuando la cola queda vacía, se considera que el algoritmo BFS ha concluido, y podemos utilizar la información registrada en el arreglo `padre`.</p>
+    
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Propiedades</h2>
+    
+    <p class="markdown  mb-3 font-exTexto">La principal cualidad del árbol BFS de \(G\) es que contiene a todos los vértices alcanzables desde \(r\) (con \(r\) como raíz), y de manera que las distancias desde \(r\) hasta cualquier vértice en el árbol BFS son las mismas que en \(G\). Debido a que el recorrido de los vecinos dentro del ciclo no tiene un orden definido, *BFS puede generar distintos árboles BFS a lo largo de varias ejecuciones*, pero cualquier árbol BFS cumple dichas propiedades. En la siguiente figura tenemos un grafo y varios árboles BFS posibles (con \(r = 0\)). En esta representación del árbol BFS, si hay una flecha de un vértice \(x\) a un nodo \(y\), quiere decir que `padre[y]` es `x`.</p>
+    <img class="mx-auto mb-3  w-10/12" src="/assets/images/bfs/arboles_posibles.png" alt="Posibles árboles BFS de un grafo.">
+    <p class="markdown  mb-3 font-exTexto">Entonces, a través del árbol BFS es sencillo determinar si es posible llegar desde \(r\) hasta un vértice, y de serlo, cómo lograrlo: solo es necesario determinar si dicho vértice se encuentra en el árbol BFS obtenido, y utilizar el arreglo `padre` para reconstruir el camino hasta \(r\).</p>
+    <p class="markdown  mb-3 font-exTexto">Por ejemplo, en la siguiente figura tenemos un grafo \(G\) y un posible árbol BFS de \(G\) obtenido al ejecutar BFS con \(r = 0\). Los vértices no alcanzables (\(4\) y \(5\)) no están en el árbol BFS, así que no son alcanzables desde \(0\). \(3\) sí es alcanzable desde \(0\), y podemos obtener un camino mínimo observando que `padre[3]` es \(1\) y `padre[1]` es \(0\).</p>
+    <img class="mx-auto mb-3  w-10/12" src="/assets/images/bfs/arbol_bfs.png" alt="Cómo usar el árbol BFS para hallar caminos">
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Complejidad</h2>
+    <p class="markdown  mb-3 font-exTexto">El algoritmo de BFS tiene un _overhead_ de inicialización de \(O(|V|)\). Cada operación de encolado y desencolado es \(O(1)\), y como cada vértice solo es explorado a lo sumo una vez, en la cantidad de operaciones sobre la cola es \(O(|V|)\). Dentro del ciclo, se itera sobre la lista de adyacencia de cada vértice a lo sumo una vez, y como la suma de todas las listas de adyacencia es \(O(|E|)\), la complejidad de esta búsqueda es \(O(|E|)\). Luego, la complejidad total de BFS es \(O(|V| + |E|)\), por lo que el algoritmo es lineal sobre cualquier grafo.</p>
+
     
     <div class="flex flex-row-flex-nowrap justify-center items-center">
       <a class="px-4 py-3 mb-3  font-exTitulos text-white text-lg text-center font-semibold bg-exCeleste rounded-md hover:brightness-75" href="/visualizar.html?codigo=bfs">Probar Visualizador</a>
@@ -34,6 +147,6 @@
   </main>
   
   
-  <!--<script type="module" src="/assets/js/main.js"></script>-->
+  <script type="module" src="/assets/js/markdown.js"></script>
 </body>
 </html>

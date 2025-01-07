@@ -19,7 +19,8 @@ module.exports = {
     'text-exValor',
     'text-exKey',
     'text-exStruct',
-    'hidden'
+    'hidden',
+    'italic'
   ],
   theme: {
     extend: {
