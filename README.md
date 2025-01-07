@@ -1,7 +1,6 @@
 ![Exactamente](assets/titulo_transparente.png)
-### *Recurso online de la FCEN para visualizar algoritmos y conceptos de computación.*
-
-*Exactamente!* es una página web estática para enseñar y aprender acerca de conceptos de computación a través de visualizaciones interactivas, pseudocódigo comentado, y explicaciones descriptivas.
+### *Exactamente!* es un recurso online de la FCEN para enseñar y aprender acerca de conceptos de computación a través de visualizaciones interactivas, pseudocódigo comentado, y explicaciones descriptivas.
+<br>
 
 ![Showcase](assets/showcase.gif)
 ![Partes](assets/partes.png)
