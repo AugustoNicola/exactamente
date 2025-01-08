@@ -4,6 +4,7 @@
 
 ![Showcase](assets/showcase.gif)
 ![Partes](assets/partes.png)
+![Showcase](assets/showcase_explicacion.gif)
 
 <br>
 
