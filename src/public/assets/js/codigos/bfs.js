@@ -3,7 +3,7 @@ export default () => ({
 	input: "Grafo #{G=(V,E)}, vértice de inicio del recorrido #{r}.",
 	output: "Árbol de padres, representado con un arreglo #{padre}.",
 	linkExplicacion: "/layouts/conceptos/bfs.html",
-	cantidadCasos: 1,
+	cantidadCasos: 3,
     lineas: [
 		"Key{inicializar} Var{Q}Key{, una} Struct{cola} Valor{vacía}",
 		"Key{inicializar} ~Violeta{explorado}Key{, un} Struct{arreglo de} Con{|}Var{V}Con{|} Struct{elementos con valores} Valor{False}",
