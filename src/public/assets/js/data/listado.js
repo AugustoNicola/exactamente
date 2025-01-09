@@ -8,34 +8,34 @@ export default () => ({
 		{
 			titulo: "DFS",
 			url: "/layouts/conceptos/dfs.html",
-			imagen: "thumbnails/thumbnail_dfs.png"
+			imagen: "thumbnails/mock.png"
 		},
 		{
 			titulo: "Dijkstra",
 			url: "/layouts/conceptos/dijkstra.html",
-			imagen: "thumbnails/thumbnail_dijkstra.png"
+			imagen: "thumbnails/mock.png"
 		},
 		{
 			titulo: "Edmonds-Karp",
 			url: "/layouts/conceptos/edmondskarp.html",
-			imagen: "thumbnails/thumbnail_edmondskarp.png"
+			imagen: "thumbnails/mock.png"
 		},
 		{
 			titulo: "Kruskal",
 			url: "/layouts/conceptos/kruskal.html",
-			imagen: "thumbnails/thumbnail_kruskal.png"
+			imagen: "thumbnails/mock.png"
 		},
 	],
 	listado_ordenamiento: [
 		{
-			titulo: "Merge Sort",
-			url: "/layouts/conceptos/mergesort.html",
-			imagen: "thumbnails/thumbnail_mergesort.png"
+			titulo: "Selection Sort",
+			url: "/layouts/conceptos/selectionsort.html",
+			imagen: "thumbnails/mock.png"
 		},
 		{
-			titulo: "Radix Sort",
-			url: "/layouts/conceptos/radixsort.html",
-			imagen: "thumbnails/thumbnail_radixsort.png"
+			titulo: "Insertion Sort",
+			url: "/layouts/conceptos/insertionsort.html",
+			imagen: "thumbnails/mock.png"
 		}
 	]
 })
