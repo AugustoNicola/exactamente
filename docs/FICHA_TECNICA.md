@@ -36,6 +36,7 @@ Los directorios y archivos más importantes para entender cómo funciona la apli
 
 ## Escribir Explicaciones
 Para crear la explicación de un nuevo concepto, solo hace falta crear un nuevo archivo `src/public/layouts/conceptos/nuevoconcepto.html`, y escribirlo como cualquier otro en ese directorio. Se puede usar archivos en `src/public/assets`. No olvidar cambiar el título de la página, y también el link de los botones de "Probar visualizador" para que lleven a `/visualizar.html?codigo=nuevoconcepto`. Además, para que la sección aparezca listada, es necesario agregarla a `src/public/assets/js/data/listado.js`.
+Los archivos de explicación soportan una versión básica de markdown que permite agregar **\*negrita\***, *_cursiva_* y \``codigo`\`, así como [LaTeX](https://www.latex-project.org/about) usando la sintaxis: `\( hola \)`.
 
 ## Escribir Pseudocódigo
 Para crear el pseudocódigo que debería verse al cargar `/visualizar.html?codigo=nuevoconcepto`, hace falta crear un nuevo archivo `src/public/assets/js/codigos/nuevoconcepto.js`, y escribirlo como cualquier otro en ese directorio. Los archivos de código son simplemente un objeto en formato JSON con los siguientes campos:
