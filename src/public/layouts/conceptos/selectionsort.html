@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selection Sort - Exactamente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=JetBrains Mono&display=swap" rel="stylesheet">
+  <link href="/assets/css/styles.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
+  <script src="/assets/js/htmx.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-exClaro">
+  <div hx-get="/components/header.html" hx-trigger="load"></div>
+  <main class="w-6/12 mx-auto mt-12">
+    <h1 class="font-exTitulos text-black text-xl text-center underline font-bold mb-4">Algoritmo de Selection Sort</h1>
+    <div class="flex flex-row-flex-nowrap justify-center items-center">
+      <a class="px-4 py-3 mb-3  font-exTitulos text-white text-lg text-center font-semibold bg-exCeleste rounded-md hover:brightness-75" href="/visualizar.html?codigo=selectionsort">Probar Visualizador</a>
+    </div>
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Descripción</h2>
+    <p class="markdown  mb-3 font-exTexto">Selection Sort (u Ordenamiento por Selección) es uno de los algoritmos más sencillos de ordenamiento. La idea básica del método es mantener una sección ordenada (normalmene a la "izquierda" en el arreglo) y una no ordenada, y sucesivamente escanear el arreglo en búsqueda del menor elemento todavía no ordenado y moverlo hacia la sección ordenada, aumentando el tamaño de la región ordenada.</p>
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Algoritmo</h2>
+    <p class="markdown  mb-3 font-exTexto">El pseudocódigo de Selection Sort es el siguiente:</p>
+    
+    <div class="bg-exOscuro px-2 py-3 my-3 d-inline-block font-exCodigo text-white">
+      <div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">1</div><div class="inline whitespace-pre select-text"><span class="text-exVar ">n</span> <span class="text-exCon ">&lt;-</span> <span class="text-exCon ">|</span><span class="text-exVar ">A</span><span class="text-exCon ">|</span></div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">2</div><div class="inline whitespace-pre select-text">para <span class="font-bold text-exNaranja ">i</span> en el rango <span class="text-exCon ">[</span><span class="text-exValor ">0</span><span class="text-exCon ">,</span><span class="text-exVar ">n</span><span class="text-exCon ">)</span>:</div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">3</div><div class="inline whitespace-pre select-text">  <span class="text-exGrisOscuro "># vamos a encontrar el elemento a ubicar en la posición i</span></div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">4</div><div class="inline whitespace-pre select-text">  <span class="text-exGrisOscuro "># recorremos la región no ordenada en busca del más chico</span></div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">5</div><div class="inline whitespace-pre select-text">  <span class="text-exVar ">mejorValor</span> <span class="text-exCon ">&lt;-</span> <span class="text-exValor ">Infinito</span></div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">6</div><div class="inline whitespace-pre select-text">  <span class="font-bold text-exVioleta ">mejorPosicion</span> <span class="text-exCon ">&lt;-</span> <span class="text-exValor ">?</span></div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">7</div><div class="inline whitespace-pre select-text">  para <span class="font-bold text-exRojo ">j</span> en el rango <span class="text-exCon ">[</span><span class="font-bold text-exNaranja ">i</span><span class="text-exCon ">,</span><span class="text-exVar ">n</span><span class="text-exCon ">)</span>:</div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">8</div><div class="inline whitespace-pre select-text">    si <span class="text-exVar ">A</span><span class="text-exCon ">[</span><span class="font-bold text-exRojo ">j</span><span class="text-exCon ">]</span> <span class="text-exCon ">&lt;</span> <span class="text-exVar ">mejorValor</span>:</div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">9</div><div class="inline whitespace-pre select-text">      <span class="text-exVar ">mejorValor</span> <span class="text-exCon ">&lt;-</span> <span class="text-exVar ">A</span><span class="text-exCon ">[</span><span class="font-bold text-exRojo ">j</span><span class="text-exCon ">]</span></div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">10</div><div class="inline whitespace-pre select-text">      <span class="font-bold text-exVioleta ">mejorPosicion</span> <span class="text-exCon ">&lt;-</span> <span class="font-bold text-exRojo ">j</span></div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">11</div><div class="inline whitespace-pre select-text">  intercambiar <span class="text-exVar ">A</span><span class="text-exCon ">[</span><span class="font-bold text-exNaranja ">i</span><span class="text-exCon ">]</span> con <span class="text-exVar ">A</span><span class="text-exCon ">[</span><span class="font-bold text-exVioleta ">mejorPosicion</span><span class="text-exCon ">]</span></div></div><div class="block select-none"><div class="w-6 mr-3 inline-block text-end text-exVerdeOscuro">12</div><div class="inline whitespace-pre select-text">devolver <span class="text-exVar ">A</span></div></div>
+    </div>
+    
+    <p class="markdown  mb-3 font-exTexto">Dado un arreglo \( A \), se realizan dos ciclos para realizar el ordenamiento. El *ciclo exterior* (que notamos con la variable \( i \)) busca en cada iteración poner el elemento correspondiente en la posición \(i\). Para ello, el *ciclo interior* (que utiliza la variable \( j \)) se encarga de explorar todas las posiciones entre la \(i\) y la última (_inclusive_), en busca del elemento en esa región de menor valor. Una vez hallado, este es el elemento que se _"selecciona"_ para intercaambiar con aquel en la posición \( i \).</p>
+    <p class="markdown  mb-3 font-exTexto">A través de este proceso, el algoritmo mantiene una *región ordenada* al frente del arreglo, cuyo tamaño crece en uno al final de cada iteración. Por el contrario, hacia la derecha del arreglo está una *region no ordenada*, cuyo tamaño decrece en cada iteración hasta eventualmente desaparecer al final de la ejecución.</p>
+    <p class="markdown  mb-3 font-exTexto">Es importante notar que cuando se realiza el intercambio entre la posición \( i \) y la `mejorPosicion`, estos dos índices podrían ser el mismo (cuando justo el menor elemento de la región no ordenada es \( i \)). En ese caso, no ocurre nada con el arreglo, ya que el \(i\)-ésimo elemento está bien puesto, así que la región ordenadwa crece normalmente.</p>
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Propiedades</h2>
+    
+    <p class="markdown  mb-3 font-exTexto">Una de las principales propiedades de Selection Sort es que, debido a su invariante de _"en la \( i \)-esima iteración están ordenados los \( i \) menores elementos del arreglo"_, es útil para obtener los elementos más pequeños de un arreglo sin necesariamente ordenarlo por completo.</p>
+    <p class="markdown  mb-3 font-exTexto">Otra característica importante es que es un algoritmo de ordenamiento *no estable*, lo que significa que los elementos iguales del arreglo no necesariamente acaban en el mismo orden luego de la ejecución. Esto no es importante cuando el tipo de dato a ordenar es sencillo (como números), pero sí puede ser muy importante cuando el tipo de dato almacenado es más complejo.</p>
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Complejidad</h2>
+    <p class="markdown  mb-3 font-exTexto">La complejidad temporal de Selection Sort depende de su doble ciclo; es importante notar que la cantidad de iteraciones del ciclo interior depende del valor de \( i \). Por ello, cuando \( i = 0 \), el ciclo interno realiza \( n \) iteraciones, cuando \( i = 1\), el ciclo interno realiza \( n - 1 \) iteraciones, etc. En general, el ciclo interno realiza \( n - i\) iteraciones para \( i = 0, \dots, n-1 \). Si despejamos la suma:</p>
+    <p class="mb-3 font-exTexto">\[  \sum_{i=0}^{n-1} (n - i) = (n) + (n - 1) + \dots + 1 = \sum_{k=1}^{n} \ k = \frac{n \cdot (n + 1)}{2} = \frac{n^2 + n}{2}  \] </p>
+    <p class="markdown  mb-3 font-exTexto">Vemos que la cantidad de iteraciones es una cuadrática en función de \( n \); por lo tanto, la complejidad temporal de Selection Sort es \( O(n^2) \), ya que todas las operaciones dentro del ciclo interno son de tiempo constante. Entonces, Selection Sort no es óptimo respecto al problema de ordenamiento por comparaciones, ya que la complejidad óptima es \( O(n \cdot log(n) ) \).</p>
+    
+    
+    
+    
+    
+    
+    
+    <div class="flex flex-row-flex-nowrap justify-center items-center">
+      <a class="px-4 py-3 mb-3  font-exTitulos text-white text-lg text-center font-semibold bg-exCeleste rounded-md hover:brightness-75" href="/visualizar.html?codigo=selectionsort">Probar Visualizador</a>
+    </div>
+  </main>
+  
+  
+  <script type="module" src="/assets/js/markdown.js"></script>
+</body>
+</html>
