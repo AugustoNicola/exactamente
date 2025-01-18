@@ -1,5 +1,8 @@
 ![Exactamente](assets/titulo_transparente.png)
 ### *Exactamente!* es un recurso online de la FCEN para enseñar y aprender acerca de conceptos de computación a través de visualizaciones interactivas, pseudocódigo comentado, y explicaciones descriptivas.
+
+### **https://exactamente.netlify.app/**
+
 <br>
 
 ![Showcase](assets/showcase.gif)
