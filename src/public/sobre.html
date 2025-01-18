@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Exactamente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=JetBrains Mono&display=swap" rel="stylesheet">
+  <link href="/assets/css/styles.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
+  <script src="/assets/js/htmx.js"></script>
+</head>
+<body class="bg-exClaro">
+  <div hx-get="/components/header.html" hx-trigger="load"></div>
+  <main class="w-6/12 mx-auto mt-12">
+    <h1 class="markdown  font-exTitulos text-black text-xl text-center underline font-bold mb-4">Sobre _Exactamente!_</h1>
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Acerca del Proyecto</h2>
+    <p class="markdown  mb-3 font-exTexto">_Exactamente!_ es un recurso online de la FCEN para enseñar y aprender acerca de conceptos de computación a través de visualizaciones interactivas, pseudocódigo comentado, y explicaciones descriptivas. La idea es construir una plataforma que ayude a la comunidad de estudiantes, de código abierto, y mantenida por los aportes de la propia comunidad.</p>
+    <p class="markdown  mb-3 font-exTexto">El proyecto surge a finales de 2024 como iniciativa individual, y actualmente está en una etapa muy inicial de desarrollo; recién están listas las primeras visualizaciones y contenidos. La meta actual es conseguir la mayor cantidad de contenido posible para el comienzo del primer cuatrimeste, en especial en el área Algoritmos.</p>
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Contribuciones</h2>
+    <p class="markdown  mb-3 font-exTexto">Por el momento _Exactamente!_ está en una versión muy temprana de desarrollo, y necesita de aportes para poder avanzar a un estado que el estudiantado pueda usar cómodamente. Por ello, si te interesa el proyecto y sentís que puede ser útil para la cursada de muchos estudiantes de la carrera, ¡te pido que consideres ayudar como puedas! En la sección de <a class="text-exVerdeOscuro underline hover:text-exVerde" href="https://github.com/AugustoNicola/exactamente/blob/main/docs/CONTRIBUCIONES.md">Contribuciones</a> podés ver de qué manera aportar. Además, podés consultar la <a class="text-exVerdeOscuro underline hover:text-exVerde" href="https://github.com/AugustoNicola/exactamente/blob/main/docs/FICHA_TECNICA.md">Ficha Técnica</a> para ver información de cómo está estructurado el repositorio.</p>
+    <p class="markdown  mb-3 font-exTexto">Una buena porción de la lógica de aplicación (sistema de visualización, estilos visuales de las secciones, etc.) ya está escrita, pero aún queda mucho contenido por hacer, principalmente las explicaciones y casos de visualización de los conceptos.</p>
+    <p class="markdown  mb-3 font-exTexto">Por eso, la manera más directa de colaborar es escribir nuevas secciones de explicación y casos de prueba. Al fin y al cabo, _Exactamente!_ solo muestra texto y renderiza los archivos en `src/public/assets/js/simulaciones`, todo de manera estática. El código no "sabe" cómo funcionan los algoritmos, solo muestra el estado de cada componente según lo especificado.</p>
+    <p class="markdown  mb-3 font-exTexto">Más allá de eso, siempre podés proponer nuevas funcionalidades que no tengan nada que ver con lo ya hecho.</p>
+    <p class="markdown  mb-3 font-exTexto">Cualquier aporte de código, notificación de errores o fallas, sugerencias o cualquier otro tipo de contribución será enormemente agradecida.</p>
+    
+    <h2 class="mt-6 mb-2  font-exTitulos text-xl text-exVerdeOscuro font-bold">Contacto</h2>
+    <p class="markdown  mb-3 font-exTexto">Soy Augusto, estudiante de cuarto año de Computación en Exactas. Si querés contactarte conmigo por cualquier cuestión o duda relacionada al proyecto, te dejo acá mis datos:</p>
+    <ul class="mb-3 font-exTexto">
+      <li><b>Mail:</b> <a class="text-exVerdeOscuro underline hover:text-exVerde" href="mailto:auguston64@gmail.com">auguston64@gmail.com</a></li>
+      <li><b>Telegram:</b> @ElLambda</li>
+    </ul>
+  
+  </main>
+  
+  
+  <script type="module" src="/assets/js/markdown.js"></script>
+</body>
+</html>
