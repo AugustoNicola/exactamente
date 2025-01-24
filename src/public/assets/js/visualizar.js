@@ -1,8 +1,6 @@
 import Alpine from 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/module.esm.js';
 import { renderGrafo } from './grafo.js'; './grafo.js'
 import { renderLista } from './lista.js'; './lista.js'
-//import codigoDummy from './codigos/dummy.js';
-//import simulacionDummy from './simulaciones/dummy.js';
 
 
 function calcularVelocidadMs(velocidadBase, multiplicador) {
@@ -27,7 +25,7 @@ function renderEstado(estado) {
     // Renderizar en visualizador
     switch (estado.visualizacion) {
         case "grafo":
-            renderGrafo(estado.render.nodos, estado.render.aristas)
+            renderGrafo(estado.render)
             break;
         case "lista":
             renderLista(estado.render)

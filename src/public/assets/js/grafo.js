@@ -100,7 +100,7 @@ function estilosArista(e) {
     }
 }
 
-export function renderGrafo(nodos, aristas) {
+export function renderGrafo(render) {
     const width = document.getElementById('canvas-container').clientWidth;
     const height = document.getElementById('canvas-container').clientHeight;
     
@@ -112,31 +112,31 @@ export function renderGrafo(nodos, aristas) {
     
     // Aristas
     svg.selectAll("line")
-    .data(aristas, e => `${e.fuente}-${e.destino}`) // creamos IDs unicos para las aristas
+    .data(render.aristas, e => `${e.fuente}-${e.destino}`) // creamos IDs unicos para las aristas
     .join(
         enter => enter.append("line")
-        .attr("x1", e => svgPos(width, nodos[e.fuente].x))
-        .attr("y1", e => svgPos(height, nodos[e.fuente].y))
-        .attr("x2", e => svgPos(width, nodos[e.destino].x))
-        .attr("y2", e => svgPos(height, nodos[e.destino].y))
+        .attr("x1", e => svgPos(width, render.nodos[e.fuente].x))
+        .attr("y1", e => svgPos(height, render.nodos[e.fuente].y))
+        .attr("x2", e => svgPos(width, render.nodos[e.destino].x))
+        .attr("y2", e => svgPos(height, render.nodos[e.destino].y))
         .attr("stroke", e => estilosArista(e)["stroke"])
         .attr("stroke-width", e => estilosArista(e)["stroke-width"]),
         update => update.attr("stroke", e => estilosArista(e)["stroke"]),
         exit => exit.remove()
     );
     
-    if(aristas.length > 0 && aristas[0].label != null) {
+    if(render.aristas.length > 0 && render.aristas[0].label != null) {
         // Cajas de las aristas
         svg.selectAll(".edge-square")
-            .data(aristas, e => `${e.source}-${e.target}`)
+            .data(render.aristas, e => `${e.source}-${e.target}`)
             .join(
                 enter => enter.append("rect")
                 .attr("x", e => {
-                    const midX = (svgPos(width, nodos[e.fuente].x) + svgPos(width, nodos[e.destino].x))/2.0
+                    const midX = (svgPos(width, render.nodos[e.fuente].x) + svgPos(width, render.nodos[e.destino].x))/2.0
                     return midX - 40.0/2.0;
                 })
                 .attr("y", e => {
-                    const midY = (svgPos(height, nodos[e.fuente].y) + svgPos(height, nodos[e.destino].y))/2.0
+                    const midY = (svgPos(height, render.nodos[e.fuente].y) + svgPos(height, render.nodos[e.destino].y))/2.0
                     return midY - 40.0/2.0;
                 })
                 .attr("width", 40)
@@ -147,15 +147,15 @@ export function renderGrafo(nodos, aristas) {
         // Pesos de las aristas
         svg.append("g")
             .selectAll("text")
-            .data(aristas, e => `${e.source}-${e.target}`)
+            .data(render.aristas, e => `${e.source}-${e.target}`)
             .join(
                 enter => enter.append("text")
                     .attr("x", e => {
-                        const midX = (svgPos(width, nodos[e.fuente].x) + svgPos(width, nodos[e.destino].x))/2.0
+                        const midX = (svgPos(width, render.nodos[e.fuente].x) + svgPos(width, render.nodos[e.destino].x))/2.0
                         return midX;
                     })
                     .attr("y", e => {
-                        const midY = (svgPos(height, nodos[e.fuente].y) + svgPos(height, nodos[e.destino].y))/2.0
+                        const midY = (svgPos(height, render.nodos[e.fuente].y) + svgPos(height, render.nodos[e.destino].y))/2.0
                         return midY + 8.0;
                     })
                     .text(e => e.label)
@@ -170,7 +170,7 @@ export function renderGrafo(nodos, aristas) {
     // Bordes de los nodos
     svg.append("g")
         .selectAll("circle")
-        .data(Object.entries(nodos), ([id, nodo]) => id)
+        .data(Object.entries(render.nodos), ([id, nodo]) => id)
         .join(
             enter => enter.append("circle")
                 .attr("cx", ([, nodo]) => svgPos(width, nodo.x))
@@ -182,7 +182,7 @@ export function renderGrafo(nodos, aristas) {
     // Cuerpo de los nodos
     svg.append("g")
     .selectAll("circle")
-    .data(Object.entries(nodos), ([id, nodo]) => id)
+    .data(Object.entries(render.nodos), ([id, nodo]) => id)
     .join(
         enter => enter.append("circle")
             .attr("cx", ([, nodo]) => svgPos(width, nodo.x))
@@ -191,12 +191,12 @@ export function renderGrafo(nodos, aristas) {
             .attr("fill", ([, nodo]) => estilosNodo(nodo)["color-interno"])
     );
     
-    if ( Object.keys(nodos).length > 0 && nodos[0].label != null) {
+    if ( Object.keys(render.nodos).length > 0 && render.nodos[0].label != null) {
         
         // IDs de los nodos (versión con label)
         svg.append("g")
             .selectAll("text")
-            .data(Object.entries(nodos), ([id, nodo]) => id)
+            .data(Object.entries(render.nodos), ([id, nodo]) => id)
             .join(
                 enter => enter.append("text")
                     .attr("x", ([, nodo]) => svgPos(width, nodo.x))
@@ -212,7 +212,7 @@ export function renderGrafo(nodos, aristas) {
         // Labels de los nodos
         svg.append("g")
             .selectAll("text")
-            .data(Object.entries(nodos), ([id, nodo]) => id)
+            .data(Object.entries(render.nodos), ([id, nodo]) => id)
             .join(
                 enter => enter.append("text")
                     .attr("x", ([, nodo]) => svgPos(width, nodo.x))
@@ -228,7 +228,7 @@ export function renderGrafo(nodos, aristas) {
         // IDs de los nodos (versión sin label)
         svg.append("g")
             .selectAll("text")
-            .data(Object.entries(nodos), ([id, nodo]) => id)
+            .data(Object.entries(render.nodos), ([id, nodo]) => id)
             .join(
                 enter => enter.append("text")
                     .attr("x", ([, nodo]) => svgPos(width, nodo.x))
