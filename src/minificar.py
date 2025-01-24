@@ -4,30 +4,86 @@
 import json
 import argparse
 
+def calcularRenderGrafo(incremento, ultimoEstado):
+    # Modificamos los nodos
+    nodos = ultimoEstado["render"]["nodos"].copy()
+    for n in incremento["nodosCambiados"]:
+        nodos[n] = nodos[n] | incremento["nodosCambiados"][n]
+        
+    # Modificamos las aristas
+    aristas = ultimoEstado["render"]["aristas"].copy()
+    for e in incremento["aristasCambiadas"]:
+        # Buscamos la arista equivalente en aristas
+        for indice, j in enumerate(aristas):
+            if e["fuente"] == j["fuente"] and e["destino"] == j["destino"]:
+                aristas[indice] = j | e
+                
+    # Confeccionamos el objeto de render de grafo
+    objetoRender = {
+        "nodos": nodos,
+        "aristas": aristas 
+    }
+    return objetoRender
+
+def calcularRenderLista(incremento, ultimoEstado):
+    elementos = ultimoEstado["render"]["elementos"].copy()
+    
+    # Modificar elementos existentes
+    if "elementosCambiados" in incremento:
+        for indice, elemento in incremento["elementosCambiados"].items():
+            elementos[int(indice)] = elemento
+        
+    # Eliminar elementos
+    if "elementosBorrados" in incremento:
+        for indice in sorted(incremento["elementosBorrados"], reverse=True):
+            elementos.pop(indice)
+    
+    # Agregar elementos
+    if "elementosAgregadosAntesDe" in incremento:
+        for indiceAntesDe, elemento in incremento["elementosAgregadosAntesDe"].items():
+            elementos.insert(int(indiceAntesDe), elemento)
+        
+    flechas = ultimoEstado["render"]["flechas"].copy()
+    
+    # Modificar flechas existentes
+    if "flechasCambiadas" in incremento:
+        for label, f in incremento["flechasCambiadas"].items():
+            # Buscamos la flecha equivalente en flechas
+            for indice, j in enumerate(flechas):
+                if label == j["label"]:
+                    flechas[indice] = j | f
+        
+    # Eliminar flechas
+    if "flechasBorradas" in incremento:
+        for label in incremento["flechasBorradas"]:
+            for indice, j in enumerate(flechas):
+                if j["label"] == label:
+                    flechas.pop(indice)
+    
+    # Agregar flechas
+    if "flechasAgregadas" in incremento:
+        for flecha in incremento["flechasAgregadas"]:
+            flechas.append(flecha)
+    
+    
+    return {
+        "elementos": elementos,
+        "flechas": flechas,
+        "minimo": ultimoEstado["render"]["minimo"],
+        "maximo": ultimoEstado["render"]["maximo"]
+    }
+
+
 def calcularRender(incremento, ultimoEstado):
     if ultimoEstado["visualizacion"] == "grafo":
-        # Modificamos los nodos
-        nodos = ultimoEstado["render"]["nodos"].copy()
-        for n in incremento["nodosCambiados"]:
-            nodos[n] = nodos[n] | incremento["nodosCambiados"][n]
-            
-        # Modificamos las aristas
-        aristas = ultimoEstado["render"]["aristas"].copy()
-        for e in incremento["aristasCambiadas"]:
-            # Buscamos la arista equivalente en aristas
-            for indice, j in enumerate(aristas):
-                if e["fuente"] == j["fuente"] and e["destino"] == j["destino"]:
-                    aristas[indice] = j | e
-                    
-        # Confeccionamos el objeto de render de grafo
-        objetoRender = {
-            "nodos": nodos,
-            "aristas": aristas 
-        }
-        return objetoRender
+        # Visualizacion de tipo Grafo
+        return calcularRenderGrafo(incremento, ultimoEstado)
+    elif ultimoEstado["visualizacion"] == "lista":
+        # Visualizacion de tipo Lista
+        return calcularRenderLista(incremento, ultimoEstado)    
     else:
-        # Otros tipos de visualizaciones.
-        pass
+        # Ningun tipo de visualizacion corresponde
+        return {}
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Convierte versiones 'normales' de casos de simulación (carpeta casos/) en las versiones 'minificadas' que el parser de estados usa (carpeta public/assets/js/simulaciones).")
