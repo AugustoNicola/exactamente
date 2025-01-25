@@ -1,0 +1,36 @@
+[
+	{
+		"incremental": false,
+		"linea": 0,
+		"contexto": "Prueba con visualización de lista.",
+		"variables": {
+			"r": "0"
+		},
+		"variablesAlteradas": {},
+		"visualizacion": "lista",
+		"render": {
+			"maximo": 5,
+			"minimo": 0,
+			"elementos": [
+				{"label": "1", "subtitulo": "A", "valor": 3, "estilo": "rojo"},
+				{"label": "1", "subtitulo": "A", "valor": 3, "estilo": "naranja"},
+				{"label": "1", "subtitulo": "A", "valor": 3, "estilo": "amarillo"},
+				{"label": "1", "subtitulo": "A", "valor": 3, "estilo": "verde"},
+				{"label": "1", "subtitulo": "A", "valor": 3, "estilo": "celeste"},
+				{"label": "1", "subtitulo": "A", "valor": 3, "estilo": "indigo"},
+				{"label": "1", "subtitulo": "A", "valor": 3, "estilo": "violeta"},
+				{"label": "1", "subtitulo": "A", "valor": 3, "estilo": "gris"}
+			],
+			"flechas": [
+				{ "indice": 0, "estilo": "rojo", "label": "rojo", "tamanio": "18px" },
+				{ "indice": 1, "estilo": "naranja", "label": "naranja", "tamanio": "18px" },
+				{ "indice": 2, "estilo": "amarillo", "label": "amarillo", "tamanio": "18px" },
+				{ "indice": 3, "estilo": "verde", "label": "verde", "tamanio": "18px" },
+				{ "indice": 4, "estilo": "celeste", "label": "celeste", "tamanio": "18px" },
+				{ "indice": 5, "estilo": "indigo", "label": "indigo", "tamanio": "18px" },
+				{ "indice": 6, "estilo": "violeta", "label": "violeta", "tamanio": "18px" },
+				{ "indice": 7, "estilo": "gris", "label": "gris", "tamanio": "18px" }
+			]
+		}
+	}
+]

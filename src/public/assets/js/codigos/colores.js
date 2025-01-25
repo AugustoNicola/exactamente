@@ -3,7 +3,7 @@ export default () => ({
 	input: "Todos los #{Colores}.",
 	output: "Un leprechaun.",
 	linkExplicacion: null,
-	cantidadCasos: 1,
+	cantidadCasos: 2,
     lineas: [
 		"esta es una Rojo{linea} ~Rojo{roja}",
 		"esta es una Naranja{linea} ~Naranja{naranja}",

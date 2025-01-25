@@ -20,7 +20,7 @@ function estilosElemento(e) {
             }
         case "verde":
             return {
-                "color-interno": "#67cbb0",
+                "color-interno": "#59ad96",
             }
         case "celeste":
             return {
@@ -37,7 +37,7 @@ function estilosElemento(e) {
         case "gris":
         default:
             return {
-                "color-interno": "#aeaeae",
+                "color-interno": "#8d8d8e",
             }
     }
 }
@@ -58,7 +58,7 @@ function estilosFlecha(f) {
             }
         case "verde":
             return {
-                "color-interno": "#67cbb0",
+                "color-interno": "#59ad96",
             }
         case "celeste":
             return {
@@ -75,7 +75,7 @@ function estilosFlecha(f) {
         case "gris":
         default:
             return {
-                "color-interno": "#aeaeae",
+                "color-interno": "#8d8d8e",
             }
     }
 }
