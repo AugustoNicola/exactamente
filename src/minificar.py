@@ -31,7 +31,7 @@ def calcularRenderLista(incremento, ultimoEstado):
     # Modificar elementos existentes
     if "elementosCambiados" in incremento:
         for indice, elemento in incremento["elementosCambiados"].items():
-            elementos[int(indice)] = elemento
+            elementos[int(indice)] = elementos[int(indice)] | elemento
         
     # Eliminar elementos
     if "elementosBorrados" in incremento:
