@@ -1,0 +1,777 @@
+[{
+		"incremental": false,
+		"linea": 0,
+		"contexto": "Veamos cómo ejecuta Selection Sort sobre su peor caso; un arreglo ordenado al revés.\n¡Comenzá a ~Celeste{ejecutar} para ver ~GrisOscuro{comentarios} acá!",
+		"variables": {
+			"A": "[5, 4, 3, 2, 1]"
+		},
+		"variablesAlteradas": {},
+		"visualizacion": "lista",
+		"render": {
+			"maximo": 5,
+			"minimo": 0,
+			"elementos": [{
+					"label": "5",
+					"valor": 5,
+					"estilo": "gris"
+				},
+				{
+					"label": "4",
+					"valor": 4,
+					"estilo": "gris"
+				},
+				{
+					"label": "3",
+					"valor": 3,
+					"estilo": "gris"
+				},
+				{
+					"label": "2",
+					"valor": 2,
+					"estilo": "gris"
+				},
+				{
+					"label": "1",
+					"valor": 1,
+					"estilo": "gris"
+				}
+			],
+			"flechas": []
+		}
+	},
+	{
+		"linea": 1,
+		"contexto": "Iniciamos creando un simple alias de la longitud del arreglo, que llamamos #Verde{n}.\nEn este caso, #Verde{n} es igual a #Valor{5}.",
+		"variablesAlteradas": {
+			"n": "5"
+		}
+	},
+	{
+		"linea": 2,
+		"contexto": "Comenzamos a iterar con la variable ~#Naranja{i} sobre todas las posiciones del arreglo.\nEn esta iteración, buscamos hallar el ~Violeta{menor elemento} en la ~GrisOscuro{región no ordenada}, con tal de ponerlo en el ~Naranja{índice} ~#Naranja{0}. \nLa ~Indigo{región ordenada} del arreglo es vacía, mientras que la ~GrisOscuro{región no ordenada} cubre todo el arreglo.",
+		"variablesAlteradas": {
+			"i": "0"
+		},
+		"flechasAgregadas": [{
+			"indice": 0,
+			"estilo": "naranja",
+			"label": "i",
+			"tamanio": "28px"
+		}]
+	},
+	{
+		"linea": 5,
+		"contexto": "Para comenzar la búsqueda, inicializamos el contador de #Verde{mejorValor} en #Valor{Infinito}.",
+		"variablesAlteradas": {
+			"mejorValor": "Infinito"
+		}
+	},
+	{
+		"linea": 6,
+		"contexto": "Además, inicializamos la variable con el índice de #~Violeta{mejorPosicion}. Su Valor{valor inicial} no importa.",
+		"variablesAlteradas": {
+			"mejorPosicion": "?"
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Ahora comienza la búsqueda dentro de la ~GrisOscuro{región no ordenada} por el ~Violeta{menor elemento}.\nPara ello, iteramos con la variable #~Rojo{j} dentro de esta ~GrisOscuro{región}.\nEn esta iteración, #~Rojo{j} vale #Valor{0}.",
+		"variablesAlteradas": {
+			"j": "0"
+		},
+		"flechasAgregadas": [{
+			"indice": 0,
+			"estilo": "rojo",
+			"label": "j",
+			"tamanio": "28px"
+		}]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 0} tiene un valor (#Valor{5}) menor a #Verde{Infinito}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{5}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "5"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{0}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "0"
+		},
+		"elementosCambiados": {
+			"0": {"estilo": "violeta"}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{1}.",
+		"variablesAlteradas": {
+			"j": "1"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 1
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 1} tiene un valor (#Valor{4}) menor a #Verde{5}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{4}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "4"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{1}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "1"
+		},
+		"elementosCambiados": {
+			"0": {"estilo": "gris"},
+			"1": {"estilo": "violeta"}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{2}.",
+		"variablesAlteradas": {
+			"j": "2"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 2
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 2} tiene un valor (#Valor{3}) menor a #Verde{Infinito}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{3}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "3"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{2}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "2"
+		},
+		"elementosCambiados": {
+			"1": {"estilo": "gris"},
+			"2": {"estilo": "violeta"}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{3}.",
+		"variablesAlteradas": {
+			"j": "3"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 3
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 3} tiene un valor (#Valor{2}) menor a #Verde{3}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{2}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "2"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{3}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "3"
+		},
+		"elementosCambiados": {
+			"2": {"estilo": "gris"},
+			"3": {"estilo": "violeta"}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{4}.",
+		"variablesAlteradas": {
+			"j": "4"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 4
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 4} tiene un valor (#Valor{1}) menor a #Verde{2}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{1}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "1"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{4}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "4"
+		},
+		"elementosCambiados": {
+			"3": {"estilo": "gris"},
+			"4": {"estilo": "violeta"}
+		}
+	},
+	{
+		"linea": 11,
+		"contexto": "Luego de recorrer toda la ~GrisOscuro{región no ordenada}, podemos concluir que el ~Violeta{elemento} ~#Violeta{4} es el que debe ir en la ~Naranja{posición} ~#Naranja{0}.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {
+			"0": {"estilo": "naranja"},
+			"4": {"estilo": "violeta"}
+		},
+		"flechasBorradas": ["j"]
+	},
+	{
+		"linea": 11,
+		"contexto": "Por ello, realizamos el intercambio de ambas posiciones.",
+		"variablesAlteradas": {
+			"A": "[1, 4, 3, 2, 5]"
+		},
+		"elementosCambiados": {
+			"0": {"label": "1", "valor": 1, "estilo": "violeta"},
+			"4": {"label": "5", "valor": 5, "estilo": "naranja"}
+		}
+	},
+	{
+		"linea": 11,
+		"contexto": "Ahora que la ~Naranja{posición} ~#Naranja{0} tiene al elemento correspondiente, esta posición pasa a ser parte de la ~Indigo{región ordenada}.",
+		"variablesAlteradas": {
+		},
+		"elementosCambiados": {
+			"0": {"estilo": "indigo"},
+			"4": {"estilo": "gris"}
+		}
+	},
+	{
+		"linea": 2,
+		"contexto": "Seguimos iterando con la variable ~#Naranja{i} sobre todas las posiciones del arreglo.\nEn esta iteración, buscamos hallar el ~Violeta{menor elemento} en la ~GrisOscuro{región no ordenada}, con tal de ponerlo en el ~Naranja{índice} ~#Naranja{1}. \nLa ~Indigo{región ordenada} del arreglo es desde el inicio hasta la posición #{0}, mientras que la ~GrisOscuro{región no ordenada} cubre desde la posición #{1} hasta el final.",
+		"variablesAlteradas": {
+			"i": "1"
+		},
+		"flechasCambiadas": {
+			"i": {
+				"indice": 1
+			}
+		}
+	},
+	{
+		"linea": 5,
+		"contexto": "Para comenzar la búsqueda, inicializamos el contador de #Verde{mejorValor} en #Valor{Infinito}.",
+		"variablesAlteradas": {
+			"mejorValor": "Infinito"
+		}
+	},
+	{
+		"linea": 6,
+		"contexto": "Además, inicializamos la variable con el índice de #~Violeta{mejorPosicion}. Su Valor{valor inicial} no importa.",
+		"variablesAlteradas": {
+			"mejorPosicion": "?"
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Ahora comienza la búsqueda dentro de la ~GrisOscuro{región no ordenada} por el ~Violeta{menor elemento}.\nPara ello, iteramos con la variable #~Rojo{j} dentro de esta ~GrisOscuro{región}.\nEn esta iteración, #~Rojo{j} vale #Valor{1}.",
+		"variablesAlteradas": {
+			"j": "1"
+		},
+		"flechasAgregadas": [{
+			"indice": 1,
+			"estilo": "rojo",
+			"label": "j",
+			"tamanio": "28px"
+		}]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 1} tiene un valor (#Valor{4}) menor a #Verde{Infinito}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{4}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "4"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{1}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "1"
+		},
+		"elementosCambiados": {
+			"1": {"estilo": "violeta"}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{2}.",
+		"variablesAlteradas": {
+			"j": "2"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 2
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 2} tiene un valor (#Valor{3}) menor a #Verde{4}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{3}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "3"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{2}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "2"
+		},
+		"elementosCambiados": {
+			"1": {"estilo": "gris"},
+			"2": {"estilo": "violeta"}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{3}.",
+		"variablesAlteradas": {
+			"j": "3"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 3
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 3} tiene un valor (#Valor{2}) menor a #Verde{3}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{2}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "2"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{3}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "3"
+		},
+		"elementosCambiados": {
+			"2": {"estilo": "gris"},
+			"3": {"estilo": "violeta"}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{4}.",
+		"variablesAlteradas": {
+			"j": "4"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 4
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 4} tiene un valor (#Valor{5}) no menor a #Verde{2}, salteamos el condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 11,
+		"contexto": "Luego de recorrer toda la ~GrisOscuro{región no ordenada}, podemos concluir que el ~Violeta{elemento} ~#Violeta{3} es el que debe ir en la ~Naranja{posición} ~#Naranja{1}.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {
+			"1": {"estilo": "naranja"}
+		},
+		"flechasBorradas": ["j"]
+	},
+	{
+		"linea": 11,
+		"contexto": "Por ello, realizamos el intercambio de ambas posiciones.",
+		"variablesAlteradas": {
+			"A": "[1, 2, 3, 4, 5]"
+		},
+		"elementosCambiados": {
+			"1": {"label": "2", "valor": 2, "estilo": "violeta"},
+			"3": {"label": "4", "valor": 4, "estilo": "naranja"}
+		}
+	},
+	{
+		"linea": 11,
+		"contexto": "Ahora que la ~Naranja{posición} ~#Naranja{1} tiene al elemento correspondiente, esta posición pasa a ser parte de la ~Indigo{región ordenada}.",
+		"variablesAlteradas": {
+		},
+		"elementosCambiados": {
+			"1": {"estilo": "indigo"},
+			"3": {"estilo": "gris"}
+		}
+	},
+	{
+		"linea": 2,
+		"contexto": "Seguimos iterando con la variable ~#Naranja{i} sobre todas las posiciones del arreglo.\nEn esta iteración, buscamos hallar el ~Violeta{menor elemento} en la ~GrisOscuro{región no ordenada}, con tal de ponerlo en el ~Naranja{índice} ~#Naranja{2}. \nLa ~Indigo{región ordenada} del arreglo es desde el inicio hasta la posición #{1}, mientras que la ~GrisOscuro{región no ordenada} cubre desde la posición #{2} hasta el final.",
+		"variablesAlteradas": {
+			"i": "2"
+		},
+		"flechasCambiadas": {
+			"i": {
+				"indice": 2
+			}
+		}
+	},
+	{
+		"linea": 5,
+		"contexto": "Para comenzar la búsqueda, inicializamos el contador de #Verde{mejorValor} en #Valor{Infinito}.",
+		"variablesAlteradas": {
+			"mejorValor": "Infinito"
+		}
+	},
+	{
+		"linea": 6,
+		"contexto": "Además, inicializamos la variable con el índice de #~Violeta{mejorPosicion}. Su Valor{valor inicial} no importa.",
+		"variablesAlteradas": {
+			"mejorPosicion": "?"
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Ahora comienza la búsqueda dentro de la ~GrisOscuro{región no ordenada} por el ~Violeta{menor elemento}.\nPara ello, iteramos con la variable #~Rojo{j} dentro de esta ~GrisOscuro{región}.\nEn esta iteración, #~Rojo{j} vale #Valor{2}.",
+		"variablesAlteradas": {
+			"j": "2"
+		},
+		"flechasAgregadas": [{
+			"indice": 2,
+			"estilo": "rojo",
+			"label": "j",
+			"tamanio": "28px"
+		}]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 2} tiene un valor (#Valor{3}) menor a #Verde{Infinito}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{3}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "3"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{2}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "2"
+		},
+		"elementosCambiados": {
+			"2": {
+				"estilo": "violeta"
+			}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{3}.",
+		"variablesAlteradas": {
+			"j": "3"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 3
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 3} tiene un valor (#Valor{4}) no menor a #Verde{3}, salteamos el condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{4}.",
+		"variablesAlteradas": {
+			"j": "4"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 4
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 4} tiene un valor (#Valor{5}) no menor a #Verde{3}, salteamos el condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 11,
+		"contexto": "Luego de recorrer toda la ~GrisOscuro{región no ordenada}, podemos concluir que el ~Violeta{elemento} ~#Violeta{2} es el que debe ir en la ~Naranja{posición} ~#Naranja{2}.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {
+			"2": {"estilo": "naranja"}
+		},
+		"flechasBorradas": ["j"]
+	},
+	{
+		"linea": 11,
+		"contexto": "En este caso, ambas posiciones son en realidad la misma, así que no hay intercambio que realizar.\nEsto ocurrió ya que el mínimo de la ~GrisOscuro{región no ordenada} era el primer elemento en la región.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {}
+	},
+	{
+		"linea": 11,
+		"contexto": "Ahora que la ~Naranja{posición} ~#Naranja{2} tiene al elemento correspondiente, esta posición pasa a ser parte de la ~Indigo{región ordenada}.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {
+			"2": {
+				"estilo": "indigo"
+			}
+		}
+	},
+	{
+		"linea": 2,
+		"contexto": "Seguimos iterando con la variable ~#Naranja{i} sobre todas las posiciones del arreglo.\nEn esta iteración, buscamos hallar el ~Violeta{menor elemento} en la ~GrisOscuro{región no ordenada}, con tal de ponerlo en el ~Naranja{índice} ~#Naranja{3}. \nLa ~Indigo{región ordenada} del arreglo es desde el inicio hasta la posición #{2}, mientras que la ~GrisOscuro{región no ordenada} cubre desde la posición #{3} hasta el final.",
+		"variablesAlteradas": {
+			"i": "3"
+		},
+		"flechasCambiadas": {
+			"i": {
+				"indice": 3
+			}
+		}
+	},
+	{
+		"linea": 5,
+		"contexto": "Para comenzar la búsqueda, inicializamos el contador de #Verde{mejorValor} en #Valor{Infinito}.",
+		"variablesAlteradas": {
+			"mejorValor": "Infinito"
+		}
+	},
+	{
+		"linea": 6,
+		"contexto": "Además, inicializamos la variable con el índice de #~Violeta{mejorPosicion}. Su Valor{valor inicial} no importa.",
+		"variablesAlteradas": {
+			"mejorPosicion": "?"
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Ahora comienza la búsqueda dentro de la ~GrisOscuro{región no ordenada} por el ~Violeta{menor elemento}.\nPara ello, iteramos con la variable #~Rojo{j} dentro de esta ~GrisOscuro{región}.\nEn esta iteración, #~Rojo{j} vale #Valor{3}.",
+		"variablesAlteradas": {
+			"j": "3"
+		},
+		"flechasAgregadas": [{
+			"indice": 3,
+			"estilo": "rojo",
+			"label": "j",
+			"tamanio": "28px"
+		}]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 3} tiene un valor (#Valor{4}) menor a #Verde{Infinito}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{4}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "4"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{3}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "3"
+		},
+		"elementosCambiados": {
+			"3": {
+				"estilo": "violeta"
+			}
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Seguimos iterando con la variable #~Rojo{j} dentro de la ~GrisOscuro{región no ordenada}.\nEn esta iteración, #~Rojo{j} vale #Valor{4}.",
+		"variablesAlteradas": {
+			"j": "4"
+		},
+		"flechasCambiadas": {
+			"j": {
+				"indice": 4
+			}
+		}
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 4} tiene un valor (#Valor{5}) no menor a #Verde{4}, salteamos el condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 11,
+		"contexto": "Luego de recorrer toda la ~GrisOscuro{región no ordenada}, podemos concluir que el ~Violeta{elemento} ~#Violeta{3} es el que debe ir en la ~Naranja{posición} ~#Naranja{3}.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {},
+		"flechasBorradas": ["j"]
+	},
+	{
+		"linea": 11,
+		"contexto": "En este caso, ambas posiciones son en realidad la misma, así que no hay intercambio que realizar.\nEsto ocurrió ya que el mínimo de la ~GrisOscuro{región no ordenada} era el primer elemento en la región.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {}
+	},
+	{
+		"linea": 11,
+		"contexto": "Ahora que la ~Naranja{posición} ~#Naranja{3} tiene al elemento correspondiente, esta posición pasa a ser parte de la ~Indigo{región ordenada}.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {
+			"3": {
+				"estilo": "indigo"
+			}
+		}
+	},
+	{
+		"linea": 2,
+		"contexto": "Seguimos iterando con la variable ~#Naranja{i} sobre todas las posiciones del arreglo.\nEn esta iteración, buscamos hallar el ~Violeta{menor elemento} en la ~GrisOscuro{región no ordenada}, con tal de ponerlo en el ~Naranja{índice} ~#Naranja{4}. \nLa ~Indigo{región ordenada} del arreglo es desde el inicio hasta la posición #{3}, mientras que la ~GrisOscuro{región no ordenada} cubre desde la posición #{4} hasta el final.",
+		"variablesAlteradas": {
+			"i": "4"
+		},
+		"flechasCambiadas": {
+			"i": {
+				"indice": 4
+			}
+		}
+	},
+	{
+		"linea": 5,
+		"contexto": "Para comenzar la búsqueda, inicializamos el contador de #Verde{mejorValor} en #Valor{Infinito}.",
+		"variablesAlteradas": {
+			"mejorValor": "Infinito"
+		}
+	},
+	{
+		"linea": 6,
+		"contexto": "Además, inicializamos la variable con el índice de #~Violeta{mejorPosicion}. Su Valor{valor inicial} no importa.",
+		"variablesAlteradas": {
+			"mejorPosicion": "?"
+		}
+	},
+	{
+		"linea": 7,
+		"contexto": "Ahora comienza la búsqueda dentro de la ~GrisOscuro{región no ordenada} por el ~Violeta{menor elemento}.\nPara ello, iteramos con la variable #~Rojo{j} dentro de esta ~GrisOscuro{región}.\nEn esta iteración, #~Rojo{j} vale #Valor{4}.",
+		"variablesAlteradas": {
+			"j": "4"
+		},
+		"flechasAgregadas": [{
+			"indice": 4,
+			"estilo": "rojo",
+			"label": "j",
+			"tamanio": "28px"
+		}]
+	},
+	{
+		"linea": 8,
+		"contexto": "Como el ~Rojo{elemento 4} tiene un valor (#Valor{5}) menor a #Verde{Infinito}, entramos en el cuerpo del condicional.",
+		"variablesAlteradas": {}
+	},
+	{
+		"linea": 9,
+		"contexto": "Al haber encontrado un elemento menor al mejor, marcamos su valor (#Valor{5}) como #Verde{mejorValor}.",
+		"variablesAlteradas": {
+			"mejorValor": "5"
+		}
+	},
+	{
+		"linea": 10,
+		"contexto": "Además, marcamos que la #~Violeta{mejorPosicion} encontrada hasta ahora es #~Rojo{4}.",
+		"variablesAlteradas": {
+			"mejorPosicion": "4"
+		},
+		"elementosCambiados": {
+			"4": {
+				"estilo": "violeta"
+			}
+		}
+	},
+	{
+		"linea": 11,
+		"contexto": "Luego de recorrer toda la ~GrisOscuro{región no ordenada}, podemos concluir que el ~Violeta{elemento} ~#Violeta{4} es el que debe ir en la ~Naranja{posición} ~#Naranja{4}.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {},
+		"flechasBorradas": ["j"]
+	},
+	{
+		"linea": 11,
+		"contexto": "En este caso, ambas posiciones son en realidad la misma, así que no hay intercambio que realizar.\nEsto ocurrió ya que el mínimo de la ~GrisOscuro{región no ordenada} era el primer elemento en la región.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {}
+	},
+	{
+		"linea": 11,
+		"contexto": "Ahora que la ~Naranja{posición} ~#Naranja{4} tiene al elemento correspondiente, esta posición pasa a ser parte de la ~Indigo{región ordenada}.",
+		"variablesAlteradas": {},
+		"elementosCambiados": {
+			"4": {
+				"estilo": "indigo"
+			}
+		}
+	},
+	{
+		"linea": 12,
+		"contexto": "Luego de iterar con la variable ~#Naranja{i} sobre todas las posiciones del arreglo, hemos puesto en cada índice el elemento correspondiente.\nLa ~Indigo{región ordenada} cubre todo el arreglo; ¡por tanto el arreglo quedó ordenado!\nNotemos que tuvimos que realizar intercambios hasta llegar a la mitad del arreglo (posición #{2}), y desde ese punto en adelante el arreglo ya quedó ordenado.\nEntonces, la cantidad de intercambios necesarios fue del orden lineal.\nComo en el resto de los casos, la cantidad de comparaciones fue cuadrática.",
+		"variablesAlteradas": {},
+		"flechasBorradas": ["i"]
+	}
+]
