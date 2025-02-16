@@ -3,7 +3,7 @@ export default () => ({
 	input: "Arreglo #{A}.",
 	output: "Arreglo #{A} ordenado ascendentemente.",
 	linkExplicacion: "/layouts/conceptos/selectionsort.html",
-	cantidadCasos: 1,
+	cantidadCasos: 2,
     lineas: [
 		"Var{n} Con{<-} Con{|}Var{A}Con{|}",
 		"para ~Naranja{i} en el rango Con{[}Valor{0}Con{,}Var{n}Con{)}:",
