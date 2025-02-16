@@ -30,7 +30,7 @@ export default () => ({
 		{
 			titulo: "Selection Sort",
 			url: "/layouts/conceptos/selectionsort.html",
-			imagen: "thumbnails/mock.png"
+			imagen: "thumbnails/thumbnail_selectionsort.png"
 		},
 		{
 			titulo: "Insertion Sort",
