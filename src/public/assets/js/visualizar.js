@@ -227,6 +227,35 @@ document.addEventListener('alpine:init', () => {
     document.addEventListener("btn-velocidad", e => {
         Alpine.store('simulacion').velocidad = e.detail
     })
+
+    // Navegación con teclado
+    document.addEventListener('keydown', e => {
+        // Ctrl + flecha Izquierda: Volver al inicio
+        if(e.key === 'ArrowLeft' && e.ctrlKey) {
+            document.getElementById('btn-reiniciar').click();
+        }
+
+        // Flecha izquierda: Dar un paso atrás
+        if(e.key === 'ArrowLeft' && !e.ctrlKey) {
+            document.getElementById('btn-atras').click();
+        }
+
+        // Barra espaciadora: Ejecutar/Pausar
+        if(e.key === ' ') {
+            document.getElementById('btn-ejecutar').click();
+        }
+
+        // Flecha derecha: Dar un paso adelante
+        if(e.key === 'ArrowRight' && !e.ctrlKey) {
+            document.getElementById('btn-adelante').click();
+        }
+
+        // Ctrl + flecha derecha: Ir al final
+        if(e.key === 'ArrowRight' && e.ctrlKey) {
+            document.getElementById('btn-final').click();
+        }
+    });
+
 })
 
 window.Alpine = Alpine;
